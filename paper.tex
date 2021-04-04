@@ -1,0 +1,55 @@
+\documentclass[conference]{IEEEtran}
+% \special{papersize=8.5in,11in}
+
+\title{Test of the VSCode Latex DevContainer Template\\
+    {\footnotesize to be used with Microsoft VSCode and Latex}
+}
+
+\author{
+    \IEEEauthorblockN{Author1}
+    \IEEEauthorblockA{\textit{Department} \\
+    \textit{Company/Organization}\\
+    City, State/Country \\
+    author1@email.com}
+\and
+    \IEEEauthorblockN{Author2}
+    \IEEEauthorblockA{\textit{Department} \\
+    \textit{Company/Organization}\\
+    City, State/Country \\
+    author2@email.com}
+\and
+    \IEEEauthorblockN{Author3}
+    \IEEEauthorblockA{\textit{Department} \\
+    \textit{Company/Organization}\\
+    City, State/Country \\
+    author3@email.com}
+\and
+    \IEEEauthorblockN{Author4}
+    \IEEEauthorblockA{\textit{Department} \\
+    \textit{Company/Organization}\\
+    City, State/Country \\
+    author4@email.com}
+}
+
+% Import setup file with includes
+\input{setup.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ---- Paper Specific Setup ----- %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\bibliography{ref}
+
+\begin{document}
+
+    % make the title area
+    \maketitle
+    \thispagestyle{plain} % Makes title page have numbers
+    \pagestyle{plain}     % Makes other pages have numbers
+
+    \section{Test Section}
+    This is a test of the latex document. \cite{BillE}
+
+    \printbibliography
+
+\end{document}

@@ -1,0 +1,17 @@
+version: "3.8"
+services:
+    latex:
+        container_name: latex-template
+        image: devcontainer-latex-template
+        build:
+            context: .
+            dockerfile: Dockerfile
+        env_file:
+            - build.env
+        volumes:
+            - ../.:/home/user/latex-ws:rw
+        # For attaching shells
+        stdin_open: true # docker run -i
+        tty: true        # docker run -t
+        hostname: latex-ws
+        user: user
