@@ -64,18 +64,32 @@ Standard solutions like canes and walkers will only work for patients with mild 
     \label{fig:SplintsDemo}
 \end{figure}
 
-Orthosis are the next level up in assistive devices. They can come in many different shapes and can be designed to fit a patient's progress. At the lowest levels are specialty splints or braces (seen in \autoref{fig:SplintsDemo}) that can help keep joints locked or reduce load of a joint through passive springs. These solutions often cost very little in material, and apply normal loads on the user's skeletal system - helping to prevent bone atrophy. \improvement{Add more detail in this section}
+Orthosis are the next level up in assistive devices. They can come in many different shapes and can be designed to fit a patient's progress. At the lowest levels are specialty splints or braces (seen in \autoref{fig:SplintsDemo}) that can help keep joints locked or reduce load of a joint through passive springs. These solutions often cost very little in material, and apply normal loads on the user's skeletal system - helping to prevent bone atrophy. Actively powered orthosis also exist with various levels of research and clinical trials (see \autoref{sec:OtherExos}), and can be separated in two major groups. 
 
-However, one of the biggest struggles with orthosis is the dermatological problems that they may cause. As explained earlier, patients suffering from paralysis are at an increased risk of developing skin complications \cite{DermatologicalIssuesParalysis}. This can be at least partially attributed to reduced sensitivity in paralyzed areas of the body. Therefore, any assisted devices that attach to a patient's skin should accurately follow the natural trajectory of the skin to avoid unnecessary rubbing.
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.5\textwidth]{Figures/Background/ExoSeparateGravityComp.png}
+    \caption{Comparison between an exoskeleton with active gravity compensation (left) and an exoskeleton with passive gravity compensation (right) \cite{GaitTrainingClinical}}
+    \label{fig:ExoTypesGCSCompared}
+\end{figure}
+\todo[]{Add additional figure of an active GCS exo}
+
+Actively compensating exoskeletons (see left image in \autoref{fig:ExoTypesGCSCompared}) are orthosis devices that use various types of actuators, sensors, and gait controllers to help keep patients standing and walking with little to no strength required (from the patient). These types of exoskeletons use up a significant amount of energy, since they must essentially do all the physical work that leg muscles would normally do. This usually means very powerful actuators and motors with precise and stable control, and large batteries (which add to overall weight) or a large/long tether. Such power increases the overall flexibility of the system, however, at a cost. It also increases complexity of the control software, and introduces a safety risk of attaching powerful actuators to patient limbs.
+
+To mitigate some of these risks, some solutions separate the exoskeleton and the gravity compensation (see right image in \autoref{fig:ExoTypesGCSCompared}). A separate mechanical system supports the weight of the user usually through a counterweight system or a gantry of some sort. This allows for the actuator in the exoskeleton orthosis to be weaker or power (current) limited to prevent injury in case of a malfunction. However, such systems are much more limited in their uses, since the power is hardware limited and more infrastructure is needed to use the device. Additionally, any actively compensating exoskeleton orthosis can be current limited and be used with a mechanical gravity compensation system. 
+
+However, one of the biggest struggles with orthoses is the dermatological problems that they may cause. As explained earlier, patients suffering from paralysis are at an increased risk of developing skin complications \cite{DermatologicalIssuesParalysis}. This can be at least partially attributed to reduced sensitivity in paralyzed areas of the body. Therefore, any assisted devices that attach to a patient's skin should accurately follow the natural trajectory of the skin to avoid unnecessary rubbing.
 
 \subsubsection{Robotics for Paralysis Rehabilitation}
 Robotics have a very large opportunity to improve the rehabilitation process in paraplegic patients. Clinical research in using robotic orthosis for gait training and other rehabilitation exercises show positive improvement in most patients when considering quality of life \cite{GaitTrainingBenefitsRoboticsWalkbot} \cite{RoboticGaitTraining}. 
+\improvement{Add more to this part}
 
-\section{Research in the Human Knee Joint}
+\section{Research in the Human Knee and Applicable Orthoses}
 
-\subsection{Active Human Knee Orthosis}
+\subsection{Knee Orthoses Design Requirements}
 
 \section{Previous work on Exoskeleton Orthosis}
+\label{sec:OtherExos}
 Exoskeletons are an interesting application to help those with walking disabilities rehabilitate and exercise their muscles.
 
 \subsection{H2}
