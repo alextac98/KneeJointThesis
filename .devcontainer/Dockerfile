@@ -3,7 +3,9 @@ FROM ubuntu
 RUN apt update && apt upgrade
 
 RUN apt install -y --no-install-recommends \
-    nano git
+    nano \
+    git \
+    ssh-client
 
 # Create a basic user
 ARG USERNAME=user
