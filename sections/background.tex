@@ -87,13 +87,55 @@ Robotics have a very large opportunity to improve the rehabilitation process in 
 \section{Human Knee Model}
 \label{sec:KneeModel}
 
-The human knee was initially considered as a pin joint, but research as early as 1992 suggested differently \cite{3DKinKneeJointOldStabby}. This study showed that the joint does extend as it bends by attaching motion capture markers to the femur and tibia of 5 different subjects. It also suggested that there was a difference between loaded and unloaded knees.
+The human knee was initially considered as a pin joint, but research as early as 1992 suggested differently \cite{3DKinKneeJointOldStabby}. This study showed that the joint does extend as it bends by attaching motion capture markers to the femur and tibia of 5 different subjects. It also suggested that there was a difference between loaded and unloaded knees. 
+% Todo: maybe add more here
 
-Several studies since then have confirmed a non-linear knee flexion and extension relationship, as well as the difference between loaded and unloaded knees. Instead of intrusive motion capture markers, modern Magnetic Resonance Imaging (MRI) has allowed for more precise bone tracking for both unweighted and weighted knee joints, since a 3 dimensional model can be built. A study performed by Iwaki \textit{et. al} 
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.5\textwidth]{Figures/Background/KneeAnatomy1.png}
+    \caption{Diagram from \cite{MRIKneeShape_Unloaded} depicting the internal anatomy of a knee with respect to the movement patterns. The movement characteristics can be closely related to a cam mechanism}
+    \label{fig:KneeAnatomyCam}
+\end{figure}
 
+Several studies since then have confirmed a non-linear knee flexion and extension relationship, as well as the difference between loaded and unloaded knees. Instead of intrusive motion capture markers, modern Magnetic Resonance Imaging (MRI) and advanced motion capture systems \cite{ModelAnalysisDeepKneeFlexion} has allowed for more precise bone tracking for both unweighted and weighted knee joints, since a 3 dimensional model can be built of the joint. A study performed by Iwaki \textit{et. al} using MRI data of cadaver knee joints found that the femur posterior circular arc is responsible for the linear extension of the leg through the flexion process, similar to the movement of a mechanical cam (see \ref{fig:KneeAnatomyCam}) \cite{MRIKneeShape_Unloaded}. Through the bending process, the joint didn't rotate much outside the plane of flexion. These results were further confirmed during the dissection of the cadavers as well as in the followup research with live human knee joints \cite{MRIKneeShape_Loaded}. Additionally, the research also showed tibiofemoral motion moved forward roughly 4mm when the knee joint was loaded.
+% TODO: Maybe add more here?
 
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Figures/Background/KneeParameterization.png}
+    \caption{Diagram showing knee rotation \cite{KinDynKneeJoint}: (a) demonstrates the tibia's rotation around an initial contact point \(C_i\). (b) shows the femur and tibia relationship using parameterized shapes between the distance \(r\) and flexion angle \(\theta\)}
+    \label{fig:KneeParameterization}
+\end{figure}
 
-\subsection{Current Knee Orthoses}
+This research was taken a step further with the parameterization of a knee joint's flexion and extension. The goal was to define a knee joint model to better create artificial mechanisms for rehabilitation exoskeletons. Based on MRI data of unloaded knees from \cite{MRIKneeShape_Unloaded}, ellipses were fitted to the ends of the tibia and femur to approximate the relationship between the distance \(r\) and flexion angle \(\theta\). The resultant tibia to femur relationship can be seen in \autoref{eq:TibiofemoralRelationship} and \autoref{fig:KneeFlexionCurve} \cite{KinDynKneeJoint}.
+
+\begin{equation}
+    r(\theta) mm = 1.078\theta^4 - 11.184\theta^3 + 26.524\theta^2 - 0.825\theta + 263.59
+    \label{eq:TibiofemoralRelationship}
+\end{equation}
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=0.9\textwidth]{Figures/Background/FlexionCurve.png}
+    \caption{Relationship between tibia and femur during the flexion of the joint. \(r(m)\) is the distance between joint point of contact (\(C_i\) in \autoref{fig:KneeParameterization}) and center of mass of the tibia.}
+    \label{fig:KneeFlexionCurve}
+\end{figure}
+
+These studies measure the relationship of the bones in the knee joints, and not the skin movement around the joint. However, exoskeleton orthosis are usually connected directly to the skin. In order for the research presented above to be applicable to orthosis, a relationship between the skin and femur/tibia must be made. A study by Benoit \textit{et. al} looked at 8 healthy males to compare the bone and skin movement in and around the knee joint in order to identify if skin markers are sufficient to determine bone kinematics around the knee. Each subject had intra-cortical bone-pins inserted in the proximal tibia and distal femur with 3 motion capture markers on each pin. Then, 8 total motion capture markers were attached directly to the skin to measure the difference in the movement (see \autoref{fig:SkinBoneRelationshipStudy}). 
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=0.6\linewidth]{Figures/Background/SkinMovementResearch_Diagram.jpg}
+    \includegraphics[width=0.3\linewidth]{Figures/Background/SkinMovementResearch_ImageMarked.jpg}
+    \caption{Depiction of the research showing the relationship between skin and bone movement: (left) a figure illustrating the location of the bone-pins and (right) showing an image of a subject with all markers attached to them \cite{SkinMovementKneeKin}}
+    \label{fig:SkinBoneRelationshipStudy}
+\end{figure}
+
+The results of this study seemed to show a significant difference between the skin and bone movement during several different gaits; average rotational errors were between \(4.4^\circ\) and \(13.1^\circ\) while translational errors averaged up to 16.1mm \cite{SkinMovementKneeKin}. What is more interesting is that the errors measured remained relatively constant between different movements, seemingly demonstrating that the error comes from the different connection methods (skin vs bone) and not via measurement tolerances. The researchers were able to conclude that skin-marker kinematics around the knee are not representative of the motion of the bone inside the knee joint. We may be able to therefore inversely conclude that bone kinematics may not be a good representation when designing knee orthoses. However, the research had a relatively small sample size due to the invasive nature of the experiment, and attached markers directly to taped up thighs (see \autoref{SkinBoneRelationshipStudy}), which may have failed to represent the actual skin movement. Therefore, more research is needed to conclude the relationship between a skin connection on the thigh and a skin connection on the shank (calf) for the purpose of rehabiliation exoskeletons.
+
+% Todo: if time, add a section on knee orthoses
+% \subsection{Current Knee Orthoses}
+
 
 \section{Previous work on Exoskeleton Orthosis}
 \label{sec:OtherExos}
