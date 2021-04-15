@@ -131,17 +131,44 @@ These studies measure the relationship of the bones in the knee joints, and not 
     \label{fig:SkinBoneRelationshipStudy}
 \end{figure}
 
-The results of this study seemed to show a significant difference between the skin and bone movement during several different gaits; average rotational errors were between \(4.4^\circ\) and \(13.1^\circ\) while translational errors averaged up to 16.1mm \cite{SkinMovementKneeKin}. What is more interesting is that the errors measured remained relatively constant between different movements, seemingly demonstrating that the error comes from the different connection methods (skin vs bone) and not via measurement tolerances. The researchers were able to conclude that skin-marker kinematics around the knee are not representative of the motion of the bone inside the knee joint. We may be able to therefore inversely conclude that bone kinematics may not be a good representation when designing knee orthoses. However, the research had a relatively small sample size due to the invasive nature of the experiment, and attached markers directly to taped up thighs (see \autoref{SkinBoneRelationshipStudy}), which may have failed to represent the actual skin movement. Therefore, more research is needed to conclude the relationship between a skin connection on the thigh and a skin connection on the shank (calf) for the purpose of rehabiliation exoskeletons.
+The results of this study seemed to show a significant difference between the skin and bone movement during several different gaits; average rotational errors were between \(4.4^\circ\) and \(13.1^\circ\) while translational errors averaged up to 16.1mm \cite{SkinMovementKneeKin}. What is more interesting is that the errors measured remained relatively constant between different movements, seemingly demonstrating that the error comes from the different connection methods (skin vs bone) and not via measurement tolerances. The researchers were able to conclude that skin-marker kinematics around the knee are not representative of the motion of the bone inside the knee joint. We may be able to therefore inversely conclude that bone kinematics may not be a good representation when designing knee orthoses. However, the research had a relatively small sample size due to the invasive nature of the experiment, and attached markers directly to taped up thighs (see \autoref{fig:SkinBoneRelationshipStudy}), which may have failed to represent the actual skin movement. Therefore, more research is needed to conclude the relationship between a skin connection on the thigh and a skin connection on the shank (calf) for the purpose of rehabiliation exoskeletons.
 
 % Todo: if time, add a section on knee orthoses
 % \subsection{Current Knee Orthoses}
 
 
-\section{Previous work on Exoskeleton Orthosis}
+\section{Exoskeleton Orthosis}
 \label{sec:OtherExos}
-Exoskeletons are an interesting application to help those with walking disabilities rehabilitate and exercise their muscles.
+Exoskeletons are an interesting application to help those with paralysis rehabilitate and exercise their muscles. They can take programmatically reduce or add bodyweight to the user to aid with safe gait training and muscle development. Additionally, powered exoskeletons can help move patient legs in the motion of a gait to help with relearning gait cycles such as walking and climbing stairs. The flexibility these rehabilitation devices offer have been noticed, and several different solutions exist at different levels of clinical implementation.
+
+\subsection{WPI LARRE}
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=0.3\linewidth]{Figures/Background/SkinMovementResearch_ImageMarked.jpg}
+    \caption{}
+    \label{fig:LARRE_Background}
+\end{figure}
+
+The WPI LARRE (Legged Articulated Robotic Rehabilitation Exoskeleton) is an exoskeleton project developed by the \href{http://aimlabdev.wpi.edu} {Worcester Polytechnic Institute (WPI) Automated and Interventional Medicine (AiM) Lab}. The research presented in this thesis directly contributes to the AiM Lab's effort to develop an exoskeleton for rehabilitation of lower-limb paralysis patients. 
+
+The project was originally started and named as the HEX Gen-1. It's original goal was to help with rehabilitation of patients who have suffered from spinal chord injury, and took a hybrid approach to an exoskeleton design. The hip joint is powered by a brushless DC motor (Maxon EC 90), while the knee and ankle joints aren't actively powered by any motor. Instead, the knee joint contains a spring wrap clutch/brake to help provide support to patients throughout their gait cycles. Additionally, the ankle joint included a spring to add force during dorsiflexion to help in walking gaits \cite{SpringWrapClutchKnee}.
+% TODO: Probably should include more in this section, including mounting system and how the knee is a pin joint
 
 \subsection{H2}
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=0.3\linewidth]{Figures/Background/OtherExos/H2_Exo.png}
+    \hspace{0.1\linewidth}
+    \includegraphics[width=0.55\linewidth]{Figures/Background/OtherExos/H2_ExoUse.png}
+    \caption{The H2 Exoskeleton, with 6 powered joints and lithium polymer batteries \cite{ExoH2}}
+    \label{fig:H2Exo}
+\end{figure}
+
+The H2 robotic exoskeleton is designed by the University of Houston to help stroke survivors with gait training and physical rehabilitation. It has 6 powerful DC motors (3 on each leg on the hip, knee, and ankle joint) geared down with harmonic gearboxes. Each motor is powered by its own local motor controller, with all electronics connected to a main controller via CAN bus. An assistive gait controller is used to apply torque when patients deviate from a planned gait pattern. The device itself was tested on 3 hemiparetic stroke patients, and was safe and effective throughout the 4 week testing period. The pilot clinical study demonstrated the "assist-as-needed" control system was able to benefit the stroke patients, and help them recover \cite{ExoH2}.
+
+% More analysis of the exo here?
 
 \subsection{ReWalk}
 
@@ -152,6 +179,3 @@ Exoskeletons are an interesting application to help those with walking disabilit
 \subsection{KINESIS}
 
 \subsection{HAL}
-
-\section{WPI LARRE Exoskeleton}
-% LARRE Stands for Legged Articulated Robotic Rehabilitation Exoskeleton 
