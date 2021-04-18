@@ -3,7 +3,7 @@
 \section{Paraplegia and Rehabilitation}
 Paraplegia is a medical term used to define where a patient loses feeling and/or movement in their lower two limbs. In comparison, quadriplegia (also sometimes known as tetraplegia) is the loss of control in all four limbs. It is important to note that not all feeling/movement needs to be lost in order for someone to be considered paraplegic \cite{IncompleteTraumaticQuadrilegia}. Only 30\% of all paraplegic and quadriplegic patients are considered complete lesions, where there is no sensation and no mobility in the lower limbs \cite{RehabParaplegia}. 
 
-\begin{figure} [h!]
+\begin{figure} [ht!]
     \centering
     \includegraphics[width=0.5\linewidth]{Figures/Background/ParaQuadInjuryLocs.png}
     \caption{Location of spinal chord injury will determine type of paralysis \cite{RehabParaplegia}}
@@ -21,7 +21,7 @@ Paralysis is usually caused by trauma, such as sports injuries, vehicle accident
     \item Reduced cardiorespiratory fitness and increased likelihood of cardiorespiratory issues
 \end{itemize}
 
-\todo[]{Talk about skin problems in paralysis patients} 
+\TODO[]{Talk about skin problems in paralysis patients} 
 
 Rehabilitation can play a key role in reducing these side effects in patients who experience paraplegia. Mainly, physical therapy for paralysis patients focus on three main types of exercises: stretching, strengthening, and aerobic. Additionally, paralysis patients may go through gait training with the assistance of medical devices.
 
@@ -57,22 +57,22 @@ Since most patients suffering from paralysis won't be able to hold themselves up
 
 Standard solutions like canes and walkers will only work for patients with mild paralysis. Canes are designed to support only 25\% of body weight \cite{RehabParaplegia}. They can also be fairly unstable, since they usually only have at most 4 points of contact with a very small ground contact area. Walkers are better than canes, since they can support up to 50\% of body weight \cite{RehabParaplegia}. However, canes, walkers, and crutches have one downside: the required upper-body strength. Mild lower-limb paralysis cases usually can benefit from these inexpensive tools to help with gait training. However most patients will struggle holding themselves up during gait training.
 
-\begin{figure} [h!]
+\begin{figure} [ht!]
     \centering
-    \includegraphics[width=0.5\linewidth]{Figures/Background/SplintsDemo.png}
+    \includegraphics[width=0.4\linewidth]{Figures/Background/SplintsDemo.png}
     \caption{Patient using basic splint orthosis \cite{RehabParaplegia}}
     \label{fig:SplintsDemo}
 \end{figure}
 
 Orthosis are the next level up in assistive devices. They can come in many different shapes and can be designed to fit a patient's progress. At the lowest levels are specialty splints or braces (seen in \autoref{fig:SplintsDemo}) that can help keep joints locked or reduce load of a joint through passive springs. These solutions often cost very little in material, and apply normal loads on the user's skeletal system - helping to prevent bone atrophy. Actively powered orthosis also exist with various levels of research and clinical trials (see \autoref{sec:OtherExos}), and can be separated in two major groups. 
 
-\begin{figure}[h!]
+\begin{figure}[ht!]
     \centering
-    \includegraphics[width=0.5\textwidth]{Figures/Background/ExoSeparateGravityComp.png}
+    \includegraphics[width=0.4\textwidth]{Figures/Background/ExoSeparateGravityComp.png}
     \caption{Comparison between an exoskeleton with active gravity compensation (left) and an exoskeleton with passive gravity compensation (right) \cite{GaitTrainingClinical}}
     \label{fig:ExoTypesGCSCompared}
 \end{figure}
-\todo[]{Add additional figure of an active GCS exo}
+\TODO[]{Add additional figure of an active GCS exo}
 
 Actively compensating exoskeletons (see left image in \autoref{fig:ExoTypesGCSCompared}) are orthosis devices that use various types of actuators, sensors, and gait controllers to help keep patients standing and walking with little to no strength required (from the patient). These types of exoskeletons use up a significant amount of energy, since they must essentially do all the physical work that leg muscles would normally do. This usually means very powerful actuators and motors with precise and stable control, and large batteries (which add to overall weight) or a large/long tether. Such power increases the overall flexibility of the system, however, at a cost. It also increases complexity of the control software, and introduces a safety risk of attaching powerful actuators to patient limbs.
 
@@ -90,17 +90,17 @@ Robotics have a very large opportunity to improve the rehabilitation process in 
 The human knee was initially considered as a pin joint, but research as early as 1992 suggested differently \cite{3DKinKneeJointOldStabby}. This study showed that the joint does extend as it bends by attaching motion capture markers to the femur and tibia of 5 different subjects. It also suggested that there was a difference between loaded and unloaded knees. 
 % Todo: maybe add more here
 
-\begin{figure}[h!]
+\begin{figure}[ht!]
     \centering
     \includegraphics[width=0.5\textwidth]{Figures/Background/KneeAnatomy1.png}
     \caption{Diagram from \cite{MRIKneeShape_Unloaded} depicting the internal anatomy of a knee with respect to the movement patterns. The movement characteristics can be closely related to a cam mechanism}
     \label{fig:KneeAnatomyCam}
 \end{figure}
 
-Several studies since then have confirmed a non-linear knee flexion and extension relationship, as well as the difference between loaded and unloaded knees. Instead of intrusive motion capture markers, modern Magnetic Resonance Imaging (MRI) and advanced motion capture systems \cite{ModelAnalysisDeepKneeFlexion} has allowed for more precise bone tracking for both unweighted and weighted knee joints, since a 3 dimensional model can be built of the joint. A study performed by Iwaki \textit{et. al} using MRI data of cadaver knee joints found that the femur posterior circular arc is responsible for the linear extension of the leg through the flexion process, similar to the movement of a mechanical cam (see \ref{fig:KneeAnatomyCam}) \cite{MRIKneeShape_Unloaded}. Through the bending process, the joint didn't rotate much outside the plane of flexion. These results were further confirmed during the dissection of the cadavers as well as in the followup research with live human knee joints \cite{MRIKneeShape_Loaded}. Additionally, the research also showed tibiofemoral motion moved forward roughly 4mm when the knee joint was loaded.
+Several studies since then have confirmed a non-linear knee flexion and extension relationship, as well as the difference between loaded and unloaded knees. Instead of intrusive motion capture markers, modern Magnetic Resonance Imaging (MRI) and advanced motion capture systems \cite{ModelAnalysisDeepKneeFlexion} has allowed for more precise bone tracking for both unweighted and weighted knee joints, since a 3 dimensional model can be built of the joint. A study performed by Iwaki \textit{et. al} using MRI data of cadaver knee joints found that the femur posterior circular arc is responsible for the linear extension of the leg through the flexion process, similar to the movement of a mechanical cam (see \autoref{fig:KneeAnatomyCam}) \cite{MRIKneeShape_Unloaded}. Through the bending process, the joint didn't rotate much outside the plane of flexion. These results were further confirmed during the dissection of the cadavers as well as in the followup research with live human knee joints \cite{MRIKneeShape_Loaded}. Additionally, the research also showed tibiofemoral motion moved forward roughly 4mm when the knee joint was loaded.
 % TODO: Maybe add more here?
 
-\begin{figure}[h!]
+\begin{figure}[ht!]
     \centering
     \includegraphics[width=0.8\textwidth]{Figures/Background/KneeParameterization.png}
     \caption{Diagram showing knee rotation \cite{KinDynKneeJoint}: (a) demonstrates the tibia's rotation around an initial contact point \(C_i\). (b) shows the femur and tibia relationship using parameterized shapes between the distance \(r\) and flexion angle \(\theta\)}
@@ -142,7 +142,7 @@ The results of this study seemed to show a significant difference between the sk
 Exoskeletons are an interesting application to help those with paralysis rehabilitate and exercise their muscles. They can take programmatically reduce or add bodyweight to the user to aid with safe gait training and muscle development. Additionally, powered exoskeletons can help move patient legs in the motion of a gait to help with relearning gait cycles such as walking and climbing stairs. The flexibility these rehabilitation devices offer have been noticed, and several different solutions exist at different levels of clinical implementation.
 
 \subsection{WPI LARRE}
-
+\label{sec:larre}
 \begin{figure}[ht!]
     \centering
     \includegraphics[width=0.3\linewidth]{Figures/Background/SkinMovementResearch_ImageMarked.jpg}
