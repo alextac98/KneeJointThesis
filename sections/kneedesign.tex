@@ -75,9 +75,56 @@ The knee path guide is built into the thigh link as a slot. The geometry is calc
 The joint is designed to be easily adaptable between patients. Therefore, the only customized part in the entire system is the thigh link which holds the knee path guide. All other parts remain the same to decrease cost and improve repairability.
 
 \subsubsection{Torque Requirements \& Actuator Selection}
-\TODO[inline]{Talk about torque requirement}
-\TODO[inline]{Talk about drive train: motor, gearbox selection and output numbers}
 
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=\linewidth]{Figures/Design/WalkingPowerCurveKnee.png}
+    \caption{Joint kinematics and dynamics during a walking gait cycle \cite{SpringWrapClutchKnee}}
+    \label{fig:WalkingPowerCurve}
+\end{figure}
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=\linewidth]{Figures/Design/SitStandPowerCurveKnee.png}
+    \caption{Joint kinematics and dynamics during a sit/stand gait cycle \cite{SpringWrapClutchKnee}}
+    \label{fig:SitStandPowerCurve}
+\end{figure}
+
+The knee joint has two rehabilitation requirements to fulfill: walking gaits and sit/stand gaits. Prior research has shown that walking gaits require roughly up to \(0.65 \frac{W}{kg}\) and \(0.25\frac{Nm}{kg}\), (see \autoref{fig:WalkingPowerCurve}), while a sit/stand gait requires roughly up to \(0.5 \frac{W}{kg}\) and \(0.04 \frac{Nm}{kg}\). Therefore, the chosen maximum parameters for this knee joint with a \(100 kg\) weight specification is \(65 W\) and \(25 Nm\). \footnote{Peak power reported by the motion capture data is higher, but these parameters were chosen after noise is filtered out. The data is recorded from a normal walking gait of a healthy person.} 
+
+\TODO[]{Add speed requirement}
+
+The Maxon EC90 was chosen, with a peak power output of \(90W\) and a max continuous torque of \(0.560 Nm\) at \(2510 rpm\) (see \autoref{apx:EC90Datasheet}). To match the speed and torque requirements, a \(100:1\) gearbox ratio is needed. Due to its high reduction to size ratio, a strain wave gearbox from Harmonic Drives\texttrademark was chosen.\footnote{The gearbox used is proprietary, and no datasheet is available} Estimated efficiency of this gearbox is roughly \(\epsilon = 90\%\).
+
+\begin{table}
+    \centering
+    \begin{tabular}{||c|c|c||}
+        \hline
+        Input (Motor) Power & \(P_{input}\) & \(90 Watts\) \\
+        \hline
+        Input (Motor) Torque @ Nominal & \(\tau_{input}\) & \(0.560 Nm\) \\
+        \hline
+        Input (Motor) Speed @ Nominal & \(\omega_{input}\) & \(2510 rpm\) \\
+        \hline
+        Input (Motor) Stall Torque & \(\tau_{in\_stall}\) & \(7.480 Nm\) \\
+        \hline \hline
+        Gearbox Ration & \(\frac{n_1}{n_2}\) & \(100:1\) \\
+        \hline \hline
+        Output Power & \(P_{output}\) & \(81 Watts\) \\
+        \hline
+        Output Torque @ Nominal & \(\tau_{input}\) & \(50.4 Nm\) \\
+        \hline
+        Output Speed @ Nominal & \(\omega_{input}\) & \(15^\circ/sec\) \\
+        \hline
+        Output Stall Torque & \(\tau_{out\_stall}\) & \(673.2 Nm\) \\
+        \hline
+    \end{tabular}
+    \caption{Motor/gearbox specifications and output power specifications of the proposed joint. See \autoref{apx:JointPowerTorqueSpeedCalcs} for all equations and calculations used.}
+    \label{table:MotorGearboxSpecs}
+\end{table}
+
+The output power of the joint is \(81 W\), with a nominal torque of \(50.4 Nm\) at \(15^\circ/sec\). Power, torque, and speed specifications of the joint exceed the requirements.
+ 
 \subsubsection{Potentiometer}
 \TODO[inline]{Talk about the pot and its purpose}
 
