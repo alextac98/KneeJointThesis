@@ -49,7 +49,7 @@ This research supports the advancement of the WPI LARRE project introduced in \a
 
 \section{Mechanical Design}
 
-The orthotic joint design proposed uses a similar idea to how a human knee joint works; a cam mechanism  extends the shank link as it is rotated relative to the thigh link. The joint therefore has two degrees of freedom: rotation around the center of rotation (output shaft of the motor and gearbox) and translation in the direction of the shank. However, since there is only one actuator, the joint is underactuated; this underactuation can be taken advantage of to match a patient's knee trajectory, where the center of mass of the shank extends away from the joint center as the joint bends.
+The orthotic joint design proposed uses a similar idea to how a human knee joint works; a cam mechanism  extends the shank link as it is rotated relative to the thigh link. The joint therefore has two degrees of freedom: rotation around the center of rotation (output shaft of the motor and gearbox) and translation in the direction of the shank. However, since there is only one actuator, the joint is underactuated; this underactuation can be taken advantage of to match a patient's knee trajectory, where the center of mass of the shank extends away from the joint center as the joint bends. For ease of assembly, the entire joint is held together by 4 M5 shoulder bolts, which also act as the axles for a total of 10 bearings. 
 
 \begin{figure} [ht!]
     \centering
@@ -147,25 +147,29 @@ The motor used also has 3 hall sensors used for pinpointing the position of the 
 % \TODO{change the name of this}
 % \TODO[inline]{Talk about motor/gearbox analog}
 
-\section{Manufacturing, Materials, \& Parts}
-Throughout the design, manufacturability and easy assembly was a focus. The entire system is held together with 4 M5 shoulder bots with 6mm diameter shoulders to be used as an accurate bearing surface.
-
 \subsubsection{Bearings}
 \label{sec:BearingsAndCalcs}
 All 10 bearings used in the design are the same (for simplicity and reduction of cost): 19mm outside diameter x 6mm inside diameter x 6mm thick double shielded ball bearings (Model 626ZZ). Each is rated for \(2.6kN\) dynamic load and \(1.05kN\) static load. Before selecting these bearings, two calculations were required to ensure these bearings could support the forces required.
 
-The first is the requirement of the torsion bar. 
+The first is the requirement of the torsion bar. Given the max torque requirement for the project is \(25Nm\) and the torsion bar is \(44mm\) from center to center, \autoref{eq:TorsionBearingLoad} calculates that the total load on all 6 bearings used is \(1136N\), equaling to roughly \(190N\) per bearing.
 
-The second force requirement for these bearings were in the knee path cam
+\begin{equation}
+    \text{Total Load per Torsion Bar Bearing}: \frac{1}{6} \times \frac{25Nm}{44mm / 2} = \frac{1}{6} \times \frac{25Nm}{0.022m} = 189.4N
+    \label{eq:TorsionBearingLoad}
+\end{equation}
 
-\subsubsection{Material Selection}
+The second force requirement for these bearings were in the knee path cam. Each knee joint must be able to hold half of the weight requirement of \(100kg\) statically. \autoref{eq:CamBearingLoad} demonstrates that each of the 4 bearings used in the cam will see a maximum static load of \(245N\) per bearing.
+
+\begin{equation}
+    \text{Total Load per Cam Bearing}: \frac{1}{4} \times 100kg \times 9.81m/s = 245.3N
+    \label{eq:CamBearingLoad}
+\end{equation}
+
+\section{Material Selection \& Manufacturing}
+
+
+\subsubsection{Material Analysis}
 
 \subsubsection{Manufacturing}
 
-\section{Testing \& Results}
-
-\subsection{Material Analysis}
-
-\subsection{Simulation Motion Analysis}
-
-\subsection{Real-world Motion Analysis}
+\section{Knee Trajectory Testing}
