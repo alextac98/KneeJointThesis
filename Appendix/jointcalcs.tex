@@ -1,0 +1,54 @@
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{||c|c|c||}
+        \hline
+        Input (Motor) Power & \(P_{input}\) & \(90 Watts\) \\
+        \hline
+        Input (Motor) Torque @ Nominal & \(\tau_{input}\) & \(0.560 Nm\) \\
+        \hline
+        Input (Motor) Speed @ Nominal & \(\omega_{input}\) & \(2510 rpm\) \\
+        \hline
+        Input (Motor) Stall Torque & \(\tau_{in\_stall}\) & \(7.480 Nm\) \\
+        \hline
+        Gearbox Ration & \(\frac{n_1}{n_2}\) & \(100:1\) \\
+        \hline
+    \end{tabular}
+    \caption{Motor/Gearbox Specifications}
+    \label{table:ApxMotorGearboxSpecs}
+\end{table}
+
+\subsubsection{Power Calculation}
+\begin{equation}
+    P_{output} = \epsilon P_{input} = 0.9 * 90W = 81W
+     \label{eq:PowerCalc}
+\end{equation}
+
+\subsubsection{Torque Calculation}
+\begin{equation}
+    \tau_{output} = \epsilon  \tau_{input} \frac{n_1}{n_2} = 0.9 * 0.560 Nm * \frac{100}{1} = 50.4 Nm
+    \label{eq:TorqueCalc}
+\end{equation}
+
+\subsubsection{Speed Calculation}
+\begin{equation}
+    \omega_{output} = \omega_{input}  \frac{n_2}{n_1} = 2510 rpm * \frac{100}{1} = 2.510 rpm = 15^\circ/sec
+    \label{eq:SpeedCalc}
+\end{equation}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{||c|c|c||}
+        \hline
+        Output Power & \(P_{output}\) & \(81 Watts\) \\
+        \hline
+        Output Torque @ Nominal & \(\tau_{input}\) & \(50.4 Nm\) \\
+        \hline
+        Output Speed @ Nominal & \(\omega_{input}\) & \(15^\circ/sec\) \\
+        \hline
+        Output Stall Torque & \(\tau_{out\_stall}\) & \(673.2 Nm\) \\
+        \hline
+    \end{tabular}
+    \caption{Joint Output Specifications}
+    \label{table:ApxJointSpecs}
+\end{table}

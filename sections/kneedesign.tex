@@ -90,11 +90,9 @@ The joint is designed to be easily adaptable between patients. Therefore, the on
     \label{fig:SitStandPowerCurve}
 \end{figure}
 
-The knee joint has two rehabilitation requirements to fulfill: walking gaits and sit/stand gaits. Prior research has shown that walking gaits require roughly up to \(0.65 \frac{W}{kg}\) and \(0.25\frac{Nm}{kg}\), (see \autoref{fig:WalkingPowerCurve}), while a sit/stand gait requires roughly up to \(0.5 \frac{W}{kg}\) and \(0.04 \frac{Nm}{kg}\). Therefore, the chosen maximum parameters for this knee joint with a \(100 kg\) weight specification is \(65 W\) and \(25 Nm\). \footnote{Peak power reported by the motion capture data is higher, but these parameters were chosen after noise is filtered out. The data is recorded from a normal walking gait of a healthy person.} 
+The knee joint has two rehabilitation requirements to fulfill: walking gaits and sit/stand gaits. Prior research has shown that walking gaits require roughly up to \(0.65 \frac{W}{kg}\) and \(0.25\frac{Nm}{kg}\), (see \autoref{fig:WalkingPowerCurve}), while a sit/stand gait requires roughly up to \(0.5 \frac{W}{kg}\) and \(0.04 \frac{Nm}{kg}\). Therefore, the chosen maximum parameters for this knee joint with a \(100 kg\) weight specification is \(65 W\) and \(25 Nm\). \footnote{Peak power reported by the motion capture data is higher, but these parameters were chosen after noise is filtered out. The data is recorded from a normal walking gait of a healthy person.} Speed requirements are roughly \(12^\circ/sec\) for walking gaits and \(15^\circ/sec\) for sit/stand gaits.
 
-\TODO[]{Add speed requirement}
-
-The Maxon EC90 was chosen, with a peak power output of \(90W\) and a max continuous torque of \(0.560 Nm\) at \(2510 rpm\) (see \autoref{apx:EC90Datasheet}). To match the speed and torque requirements, a \(100:1\) gearbox ratio is needed. Due to its high reduction to size ratio, a strain wave gearbox from Harmonic Drives\texttrademark was chosen.\footnote{The gearbox used is proprietary, and no datasheet is available} Estimated efficiency of this gearbox is roughly \(\epsilon = 90\%\).
+The Maxon EC90 was chosen, with a peak power output of \(90W\) and a max continuous torque of \(0.560 Nm\) at \(2510 rpm\) (see \autoref{apx:EC90Datasheet}). To match the speed and torque requirements, a \(100:1\) gearbox ratio is needed. Due to its high reduction to size ratio, a strain wave gearbox from {Harmonic Drives\texttrademark} was chosen.\footnote{The gearbox used is proprietary, and no datasheet is available} Estimated efficiency of this gearbox is roughly \(\epsilon = 90\%\).
 
 \begin{table}
     \centering
@@ -123,14 +121,16 @@ The Maxon EC90 was chosen, with a peak power output of \(90W\) and a max continu
     \label{table:MotorGearboxSpecs}
 \end{table}
 
-The output power of the joint is \(81 W\), with a nominal torque of \(50.4 Nm\) at \(15^\circ/sec\). Power, torque, and speed specifications of the joint exceed the requirements.
+The output power of the joint is \(81 W\), with a nominal torque of \(50.4 Nm\) at \(15^\circ/sec\). Power, torque, and speed specifications of the joint theoretically exceed the requirements. Physical testing is needed, however, to ensure that these numbers are accurate and sufficient for a rehabilitation exoskeleton.
  
-\subsubsection{Potentiometer}
-\TODO[inline]{Talk about the pot and its purpose}
+\subsubsection{Potentiometer and Rotary Encoder}
+A potentiometer was embedded into the knee design to act as an absolute rotary encoder to measure the current angle of the joint. It's purpose is twofold: to provide for an absolute angle at any given time and to provide for rough rotary encoding when a the motor (for passive experimentation). As mentioned above, the integration needed to protect the sensitive connection points. The potentiometer chosen was the Vishay PRV6, with \(200^\circ\) of travel, a linear resistance, and \(\pm 1\%\) tolerance, which equates to a sensored tolerance of \(\pm 2^\circ\). 
 
-\subsubsection{Motor Analog} 
-\TODO{change the name of this}
-\TODO[inline]{Talk about motor/gearbox analog}
+The motor used also has 3 hall sensors used for pinpointing the position of the rotor versus the stator. Since the motor has a 12 poles and 3 sensors (totaling 36 pulses per revolution) as well as a 100:1 reduction through the gearbox, the hall effect sensors can be used to create an effective 3600 pulses per revolution encoder. When used in conjunction with the absolute encoder, the encoded angle can be very precise.
+
+% \subsubsection{Motor Analog} 
+% \TODO{change the name of this}
+% \TODO[inline]{Talk about motor/gearbox analog}
 
 \section{Manufacturing, Materials, \& Parts}
 Throughout the design, manufacturability and easy assembly was a focus. The entire system is held together with 4 M5 shoulder bots with 6mm diameter shoulders to be used as an accurate bearing surface.
