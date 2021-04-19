@@ -166,10 +166,65 @@ The second force requirement for these bearings were in the knee path cam. Each 
 \end{equation}
 
 \section{Material Selection \& Manufacturing}
+\fix[inline]{Talks only about one component, but never mentions that component. This section should mention every component and the analsysis for each one}
+The concept behind the joint is not dependent on material choice. However, when it came time to manufacture the prototypes, two materials were selected as potential options: aluminum and polylactic acid (PLA) plastic. Aluminum benefits from its strength to weight ratio and manufacturing simplicity when it is being machined. PLA plastic, on the other hand, can be injection molded or 3D printed using fused deposition modeling (FDM) printers. This makes PLA more flexible and less expensive, at the cost of softness and strength when compared to aluminum.
 
+Other plastics and metals were initially considered. Out of the 3D printable plastics that were accessible with the tools available, PLA is strongest, stiffest, and hardest. Other FDM 3D printable plastics considered were  acrylonitrile butadiene styrene (ABS) and polyethylene terephthalate (PET). On the metals, side, steels were considered as a material option. However, its density and higher complexity to machine when compared to aluminum ruled it out as a material option.
 
 \subsubsection{Material Analysis}
+To decide between aluminum and PLA, the materials were analyzed in finite element analysis (FEA) simulation inside Dassault SolidWorks. \autoref{table:MaterialProperties} shows the material properties used. It is important to note that manufacturing methods were not considered in the analysis; therefore, layer adhesion was not considered when calculating the strength of the material.
+
+\begin{table}
+    \centering
+    \begin{tabular}{ |c|c|c| }
+        \hline
+        Material & Aluminum & PLA \\
+        \hline \hline
+        Mass Density [$kg/m^3$] & 2700 & 1420 \\
+        \hline
+        Tensile Strength [$N/mm^2$] & 124.08 & 57.3\\
+        \hline
+        Yield Strength [$N/mm^2$] & 55.15 & 14.3\\ 
+        \hline
+        Shear Modulus [$N/mm^2$] & 26000 & 55000\\
+        \hline
+    \end{tabular}
+    \caption{Material properties used when analyzing each material in FEA simulation in SolidWorks}
+    \label{table:MaterialProperties}
+\end{table}
+
+explain figures
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=0.8\linewidth]{Figures/Design/FEA_PLA_45deg.png}
+    \caption{FEA of knee joint manufactured from PLA. Force applied (at arrows) is 500N, the resultant safety factor is 2.359.}
+    \label{fig:FEA_PLA}
+\end{figure}
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=0.8\linewidth]{Figures/Design/FEA_AL_45deg.png}
+    \caption{FEA of knee joint manufactured from Aluminum. Force applied (at arrows) is 500N, the resultant safety factor is 12.04.}
+    \label{fig:FEA_AL}
+\end{figure}
+
+PLA was chosen as the best material for our experimentation. Analysis demonstrated that it can support the stresses required at angle (shown in \autoref{fig:StrengthFlexion}). It can also be manufactured very quickly and easily with access to a conventional FDM 3D printer, allowing for quick revisions during the prototyping process. 
+However, if this joint were to be manufactured for use outside of prototype development and clinical trials, I would recommend using aluminum, as the joint would likely be more resilient and last longer. It would also increase torsional stiffness in the joint and reduce the likelihood of the bearings creating divots in the surface of the knee path guide.
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=0.8\linewidth]{Figures/Design/StrengthFlexionCurve.png}
+    \caption{FEA of knee joint manufactured from PLA. Force applied (at arrows) is 500N, the resultant safety factor is 2.359}
+    \label{fig:StrengthFlexion}
+\end{figure}
 
 \subsubsection{Manufacturing}
+
+The manufacturing process between the two materials is very different as well. While there are many different ways of creating parts in either material, the research will focus on the most common ways as to be easily replicated by others if desired.
+
+As a plastic, PLA has many options for manufacturing. While PLA can be injection molded or machined, the most common use case for it is through FDM 3D printing. The accessibility and low cost at low production numbers makes this method of manufacturing the best for our use cases for the larger of our parts as well as any part that doesn't deal with big forces. For this project, a Creality Ender 3 was used to 3D print the parts required. 
+
+Aluminum can also be 3D printed, but this requires some very specific tools to achieve. It can also be casted (similarly to injection molding for plastics), but this requires specific machining for the molds, and the parts still usually need to be machined to the final correct dimensions (the best option for high volume manufacturing). Therefore, all aluminum parts were designed to be manufactured using conventional lathes and mills. The manufacturing process, however, can be further simplified with access to a water jet or metal laser cutter. Such a tool can cut out all parts to a rough dimension, and a quick machining pass can finish the surfaces that need to be precise, such as the knee path guide and the slot in the shank link. If water jetting is selected as the preferred method of manufacture, parts may have a slight bevel due to the conical output of the water jet.
 
 \section{Knee Trajectory Testing}
