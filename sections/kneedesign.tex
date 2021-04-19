@@ -1,20 +1,51 @@
 \chapter{Knee Joint Design}
 
-The knee joint presented in this thesis is designed to replace the current passive pin knee joint with a spring wrap clutch for the WPI LARRE exoskeleton (see \autoref{sec:larre}).
+% The knee joint presented in this thesis is designed to replace the current passive pin knee joint with a spring wrap clutch for the WPI LARRE exoskeleton (see \autoref{sec:larre}).
 
-\TODO{add more in the intro section for the knee joint design}
+% \TODO{add more in the intro section for the knee joint design}
 
-\section{Design Parameters}
+\section{Design Requirements}
+\label{sec:DesignParams}
+The following are the design parameters layed out at the beginning of the project:
 
-\subsubsection{Follow a specific equation}
+\subsubsection{Follows the defined knee tibiofemoral trajectory}
+The knee joint must be able to follow a tibiofemoral trajectory. As referenced in \cite{KinDynKneeJoint}, human knee joints can be generally defined by a quartic trajectory. This project will use the parameters of a cadaver, which can be seen in \autoref{eq:KneeJointGeometryEquation}. The design of the joint must be easily customizable for each patient/user. Ideally, all parts except a few should remain the same to increase simplicity and reduce cost of manufacturing.
 
 \begin{equation}
     r(\theta) mm = 1.078\theta^4 - 11.184\theta^3 + 26.524\theta^2 - 0.825\theta + 263.59
     \label{eq:KneeJointGeometryEquation}
 \end{equation}
 
-\subsubsection{Parameter 2}
+\subsubsection{Supports the mass of a person}
+Each joint should be able to support half of the mass of a 85kg human plus a 15kg exoskeleton (total of 100kg) with an additional safety factor. 
 
+\subsubsection{Power/Torqe/Speed for walking gaits and sit/stand exercises}
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=\linewidth]{Figures/Design/WalkingPowerCurveKnee.png}
+    \caption{Joint kinematics and dynamics during a walking gait cycle \cite{SpringWrapClutchKnee}}
+    \label{fig:WalkingPowerCurve}
+\end{figure}
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=\linewidth]{Figures/Design/SitStandPowerCurveKnee.png}
+    \caption{Joint kinematics and dynamics during a sit/stand gait cycle \cite{SpringWrapClutchKnee}}
+    \label{fig:SitStandPowerCurve}
+\end{figure}
+
+The knee joint has two rehabilitation requirements to fulfill: walking gaits and sit/stand gaits. Prior research has shown that walking gaits require roughly up to \(0.65 \frac{W}{kg}\) and \(0.25\frac{Nm}{kg}\), (see \autoref{fig:WalkingPowerCurve}), while a sit/stand gait requires roughly up to \(0.5 \frac{W}{kg}\) and \(0.04 \frac{Nm}{kg}\).  Speed requirements are roughly \(12^\circ/sec\) for walking gaits and \(15^\circ/sec\) for sit/stand gaits. Therefore, the designed knee joint for the \(100 kg\) weight specification should be capable of mechanically outputting \(65 W\) and \(25 Nm\) at \(15^\circ/sec\).
+
+\subsubsection{Senses the joint angle}
+Sensors must be able to accurately encode the rotational position of the joint. The rationale behind this requirement is for research, debugging, and most importantly accurate and safe position control. Therefore, the joint must be able to read its own position in both passive (non-powered) modes and active (powered) modes. It should also have a minimum accuracy of \(\pm0.5^\circ\) during position control, and be able to maintain position measurement through power cycles (absolute positioning).
+
+\subsubsection{Simple to manufacture and assemble}
+\improve[]{This parameter might need to be more measurable?}
+The joint must be designed with manufacturing and assembly in mind. All components must be easily sourced and generally available. Any machining requirement must be achievable with common machining techniques.
+
+\subsubsection{Integrates into the WPI LARRE}
+This research supports the advancement of the WPI LARRE project introduced in \autoref{sec:larre}. Therefore, the designed joint must be able to integrate into the universal exoskeleton joint connector developed in the LARRE project.
 
 \section{Mechanical Design}
 
@@ -76,23 +107,7 @@ The joint is designed to be easily adaptable between patients. Therefore, the on
 
 \subsubsection{Torque Requirements \& Actuator Selection}
 
-\begin{figure}[ht!]
-    \centering
-    \includegraphics[width=\linewidth]{Figures/Design/WalkingPowerCurveKnee.png}
-    \caption{Joint kinematics and dynamics during a walking gait cycle \cite{SpringWrapClutchKnee}}
-    \label{fig:WalkingPowerCurve}
-\end{figure}
-
-\begin{figure}[ht!]
-    \centering
-    \includegraphics[width=\linewidth]{Figures/Design/SitStandPowerCurveKnee.png}
-    \caption{Joint kinematics and dynamics during a sit/stand gait cycle \cite{SpringWrapClutchKnee}}
-    \label{fig:SitStandPowerCurve}
-\end{figure}
-
-The knee joint has two rehabilitation requirements to fulfill: walking gaits and sit/stand gaits. Prior research has shown that walking gaits require roughly up to \(0.65 \frac{W}{kg}\) and \(0.25\frac{Nm}{kg}\), (see \autoref{fig:WalkingPowerCurve}), while a sit/stand gait requires roughly up to \(0.5 \frac{W}{kg}\) and \(0.04 \frac{Nm}{kg}\). Therefore, the chosen maximum parameters for this knee joint with a \(100 kg\) weight specification is \(65 W\) and \(25 Nm\). \footnote{Peak power reported by the motion capture data is higher, but these parameters were chosen after noise is filtered out. The data is recorded from a normal walking gait of a healthy person.} Speed requirements are roughly \(12^\circ/sec\) for walking gaits and \(15^\circ/sec\) for sit/stand gaits.
-
-The Maxon EC90 was chosen, with a peak power output of \(90W\) and a max continuous torque of \(0.560 Nm\) at \(2510 rpm\) (see \autoref{apx:EC90Datasheet}). To match the speed and torque requirements, a \(100:1\) gearbox ratio is needed. Due to its high reduction to size ratio, a strain wave gearbox from {Harmonic Drives\texttrademark} was chosen.\footnote{The gearbox used is proprietary, and no datasheet is available} Estimated efficiency of this gearbox is roughly \(\epsilon = 90\%\).
+The design parameters specified in \autoref{sec:DesignParams} are an output of at least \(65 W\) and \(25 Nm\) at \(15^\circ/sec\). The Maxon EC90 was chosen, with a peak power output of \(90W\) and a max continuous torque of \(0.560 Nm\) at \(2510 rpm\) (see \autoref{apx:EC90Datasheet}). To match the speed and torque requirements, a \(100:1\) gearbox ratio is needed. Due to its high reduction to size ratio, a strain wave gearbox from {Harmonic Drives\texttrademark} was chosen.\footnote{The gearbox used is proprietary, and no datasheet is available} Estimated efficiency of this gearbox is roughly \(\epsilon = 90\%\).
 
 \begin{table}
     \centering
@@ -142,6 +157,10 @@ All 10 bearings used in the design are the same (for simplicity and reduction of
 The first is the requirement of the torsion bar. 
 
 The second force requirement for these bearings were in the knee path cam
+
+\subsubsection{Material Selection}
+
+\subsubsection{Manufacturing}
 
 \section{Testing \& Results}
 
