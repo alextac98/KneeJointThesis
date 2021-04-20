@@ -165,6 +165,8 @@ The second force requirement for these bearings were in the knee path cam. Each 
     \label{eq:CamBearingLoad}
 \end{equation}
 
+% TODO: Probably should have a Design Analysis section, but not much data
+
 \section{Material Selection \& Manufacturing}
 \fix[inline]{Talks only about one component, but never mentions that component. This section should mention every component and the analsysis for each one}
 The concept behind the joint is not dependent on material choice. However, when it came time to manufacture the prototypes, two materials were selected as potential options: aluminum and polylactic acid (PLA) plastic. Aluminum benefits from its strength to weight ratio and manufacturing simplicity when it is being machined. PLA plastic, on the other hand, can be injection molded or 3D printed using fused deposition modeling (FDM) printers. This makes PLA more flexible and less expensive, at the cost of softness and strength when compared to aluminum.
@@ -215,7 +217,7 @@ However, if this joint were to be manufactured for use outside of prototype deve
 \begin{figure}[ht!]
     \centering
     \includegraphics[width=0.8\linewidth]{Figures/Design/StrengthFlexionCurve.png}
-    \caption{FEA of knee joint manufactured from PLA. Force applied (at arrows) is 500N, the resultant safety factor is 2.359}
+    \caption{Analysis of the joint with major components manufactured out of PLA shows that the design is weakest at a \(90^\circ\) flexion, with a maximum static load of \(757N\) per joint.}
     \label{fig:StrengthFlexion}
 \end{figure}
 
@@ -228,3 +230,23 @@ As a plastic, PLA has many options for manufacturing. While PLA can be injection
 Aluminum can also be 3D printed, but this requires some very specific tools to achieve. It can also be casted (similarly to injection molding for plastics), but this requires specific machining for the molds, and the parts still usually need to be machined to the final correct dimensions (the best option for high volume manufacturing). Therefore, all aluminum parts were designed to be manufactured using conventional lathes and mills. The manufacturing process, however, can be further simplified with access to a water jet or metal laser cutter. Such a tool can cut out all parts to a rough dimension, and a quick machining pass can finish the surfaces that need to be precise, such as the knee path guide and the slot in the shank link. If water jetting is selected as the preferred method of manufacture, parts may have a slight bevel due to the conical output of the water jet.
 
 \section{Knee Trajectory Testing}
+Motion capture and SolidWorks motion simulations were used to verify the joint's trajectory based on an inputed tibiofemoral trajectory. The motion simulation outputted a perfect match to the input equation (\autoref{eq:KneeJointGeometryEquation}), since the simulation platform is using a perfect model which directly inputs the equation above.
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=0.8\linewidth]{Figures/Design/KneeTrajTest.png}
+    \caption{Experimental setup for measuring the trajectory of the manufactured joint. 9 motion capture dots were used to measure any movement in all 6 degrees of freedom.}
+    \label{fig:TrajTestSetup}
+\end{figure}
+
+To further verify the relationship, a 10-camera Vicon Vantage 5 motion capture system was used. 9 motion capture dots were placed strategically around the knee joint. Two rigid bodies were used (each containing 4 motion capture dots) to be able to measure position and orientation in all 6 degrees of freedom. One rigid body was placed on the connector on the shank link, while the other was attached to the connector of the thigh link. A final motion capture dot was placed at the joint center. Then, the joint was manually actuated through its range while collecting data from the motion capture system. The data was processed using software tools developed in \autoref{sec:KneeParams} for measuring human tibiofemoral relationships. To ensure the data collected remained representative of the test and was not modified by any processing tools developed, only data importing tools were used. These tools simply took the raw data from the Vicon system and imported it into Python in a cleaner way.
+
+\begin{figure}[ht!]
+    \centering
+    % \includegraphics[width=0.8\linewidth]{Figures/Design/KneeTrajTest.png}
+    \missingfigure[]{Add in fixed motion capture data!}
+    \caption{Results from the motion capture system demonstrates that the designed knee joint can follow a desired trajectory very closely, only deviating by [insert number here]}
+    \label{fig:TrajTestResults}
+\end{figure}
+
+The motion capture analysis data in \autoref{fig:TrajTestResults} demonstrates the effectiveness of the joint; it was able to follow the desired trajectory layed out in \autoref{eq:KneeJointGeometryEquation} with minimal error. \TODO[inline]{More text needed here!}
