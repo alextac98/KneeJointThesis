@@ -21,7 +21,7 @@ Paralysis is usually caused by trauma, such as sports injuries, vehicle accident
     \item Reduced cardiorespiratory fitness and increased likelihood of cardiorespiratory issues
 \end{itemize}
 
-\TODO[]{Talk about skin problems in paralysis patients} 
+Paraplegic and quadriplegic patients also have a higher likelihood of developing skin complications due to their limited mobility and feeling. The limited feeling make skin complications more dangerous, while reduced blood flow to affected limbs increase the recovery time of any dermatological issues \cite{SPISecondaryEffects}. Pressure ulcers are a common example of skin complications in patients suffering from spinal chord injuries, with those suffering from higher levels of paralysis at a higher risk. In fact, a study \cite{PressureUlcerRiskParalysis} discovered that 1/3 of its subjects suffered from at least 1 pressure ulcer in both pre-study analysis as well as throughout the four stages of its study. Therefore, any device to be used with paralysis patients must more-so consider the safety and comfort of the patient.
 
 Rehabilitation can play a key role in reducing these side effects in patients who experience paraplegia. Mainly, physical therapy for paralysis patients focus on three main types of exercises: stretching, strengthening, and aerobic. Additionally, paralysis patients may go through gait training with the assistance of medical devices.
 
@@ -38,7 +38,7 @@ Rehabilitation can play a key role in reducing these side effects in patients wh
 Stretching is considered one of the most important exercises \cite{RehabParaplegia}, more-so than any other form of exercise because it can be done often and at home. Carefully designed exercises (like seen in \autoref{fig:ParaplegiaStretches}) can improve flexibility, reduce muscle spasms, reduce the chance of injury, and relieve contractures \cite{ParalysisStretchingWeightLoadingPMID} \cite{ParalysisStretchingHarvey} \cite{ParalysisStretchingMichigan}. Some common stretches include bilateral adductor stretches, quadriceps stretches, and hip flexor stretches.
 
 \subsubsection{Cardiorespiratory and Cardiovascular Training}
-Due to the difficulty of exercise, cardiovascular and cardiorespiratory activities are also very important to maintain health in paralysis patients. Aerobic exercises can increase energy levels, improve lung and heart function, control body weight, and reduce fatigue \cite{RehabParaplegia} \cite{AerobicCapacityParaplegia}. A study showed that patients who suffer from neuromuscular deficiencies such as paraplegia suffered decreasing VO\textsubscript{2} max compared to control subjects with no issues \cite{AerobicCapacityParaplegia}. VO\textsubscript{2} max a common metric that measures the maximum rate of oxygen utilization during heavy exercise. Combination of the upper body and lower body in paraplegic patients can strengthen the paralyzed limbs while also activating healthy limbs. Some researchers have even proposed introducing wheelchair racing as a sport in an effort to help with rehabilitation after paraplegia \cite{WheelchairRacingParaplegia}.
+Due to the difficulty of exercise, cardiovascular and cardiorespiratory activities are also very important to maintain health in paralysis patients. Aerobic exercises can increase energy levels, improve lung and heart function, control body weight, and reduce fatigue \cite{RehabParaplegia} \cite{AerobicCapacityParaplegia}. A study showed that patients who suffer from neuromuscular deficiencies such as paraplegia suffered decreasing VO\textsubscript{2}max \footnote{VO\textsubscript{2}max is a common metric that measures the maximum rate of oxygen utilization during heavy exercise.} compared to control subjects with no issues \cite{AerobicCapacityParaplegia}. The combination of the upper and lower body exercise in paraplegic patients can strengthen the paralyzed limbs while also activating healthy limbs, and ultimately improve the overall health of the patient. Some researchers have even proposed introducing wheelchair racing as a sport in an effort to help with rehabilitation after paraplegia \cite{WheelchairRacingParaplegia}.
 
 \subsubsection{Strength Training}
 Improving strength in muscles may actually partially reverse the loss of mobility in partially paralyzed patients, while also improving muscle tone \cite{AerobicCapacityParaplegia} and preventing bone atrophy \cite{ParalysisStretchingWeightLoadingPMID}. This type of exercise can be split into two major regions: training of affected limbs and muscles, and the training of non-affected regions. Affected limbs can benefit from an increase in mobility and definition, and can generally reduce the likelihood of muscular atrophy. Additionally, strong hip and leg muscles in partially paraplegic patients can help in gait training and increase the possibility of usage in life. On the other side, increasing or maintaining strength in unaffected regions can help with quality of life improvement. Often, paraplegic patients may elect to use crutches or canes as an assisted mobility device in the real world. Increasing arm/shoulder strength and endurance will also increase capability for patients to use some of these assisted devices. Finally, back and abdomen muscles are very important to strengthen to maintain posture and improve gait performance \cite{TrunkMuscleLoadingParaplegia}. 
@@ -68,11 +68,12 @@ Orthosis are the next level up in assistive devices. They can come in many diffe
 
 \begin{figure}[ht!]
     \centering
+    \includegraphics[width=0.4\linewidth]{Figures/Background/OtherExos/LARRE_old.png}
+    \hspace*{10mm}
     \includegraphics[width=0.4\textwidth]{Figures/Background/ExoSeparateGravityComp.png}
     \caption{Comparison between an exoskeleton with active gravity compensation (left) and an exoskeleton with passive gravity compensation (right) \cite{GaitTrainingClinical}}
     \label{fig:ExoTypesGCSCompared}
 \end{figure}
-\TODO[]{Add additional figure of an active GCS exo}
 
 Actively compensating exoskeletons (see left image in \autoref{fig:ExoTypesGCSCompared}) are orthosis devices that use various types of actuators, sensors, and gait controllers to help keep patients standing and walking with little to no strength required (from the patient). These types of exoskeletons use up a significant amount of energy, since they must essentially do all the physical work that leg muscles would normally do. This usually means very powerful actuators and motors with precise and stable control, and large batteries (which add to overall weight) or a large/long tether. Such power increases the overall flexibility of the system, however, at a cost. It also increases complexity of the control software, and introduces a safety risk of attaching powerful actuators to patient limbs.
 
@@ -82,13 +83,13 @@ However, one of the biggest struggles with orthoses is the dermatological proble
 
 \subsubsection{Robotics for Paralysis Rehabilitation}
 Robotics have a very large opportunity to improve the rehabilitation process in paraplegic patients. Clinical research in using robotic orthosis for gait training and other rehabilitation exercises show positive improvement in most patients when considering quality of life \cite{GaitTrainingBenefitsRoboticsWalkbot} \cite{RoboticGaitTraining}. 
-\improve{Add more to this part}
+% TODO: [Minor] Add more to this part
 
 \section{Human Knee Model}
 \label{sec:KneeModel}
 
 The human knee was initially considered as a pin joint, but research as early as 1992 suggested differently \cite{3DKinKneeJointOldStabby}. This study showed that the joint does extend as it bends by attaching motion capture markers to the femur and tibia of 5 different subjects. It also suggested that there was a difference between loaded and unloaded knees. 
-% Todo: maybe add more here
+% TODO: [Minor] maybe add more here
 
 \begin{figure}[ht!]
     \centering
@@ -98,7 +99,7 @@ The human knee was initially considered as a pin joint, but research as early as
 \end{figure}
 
 Several studies since then have confirmed a non-linear knee flexion and extension relationship, as well as the difference between loaded and unloaded knees. Instead of intrusive motion capture markers, modern Magnetic Resonance Imaging (MRI) and advanced motion capture systems \cite{ModelAnalysisDeepKneeFlexion} has allowed for more precise bone tracking for both unweighted and weighted knee joints, since a 3 dimensional model can be built of the joint. A study performed by Iwaki \textit{et. al} using MRI data of cadaver knee joints found that the femur posterior circular arc is responsible for the linear extension of the leg through the flexion process, similar to the movement of a mechanical cam (see \autoref{fig:KneeAnatomyCam}) \cite{MRIKneeShape_Unloaded}. Through the bending process, the joint didn't rotate much outside the plane of flexion. These results were further confirmed during the dissection of the cadavers as well as in the followup research with live human knee joints \cite{MRIKneeShape_Loaded}. Additionally, the research also showed tibiofemoral motion moved forward roughly 4mm when the knee joint was loaded.
-% TODO: Maybe add more here?
+% TODO: [Minor] Maybe add more here?
 
 \begin{figure}[ht!]
     \centering
@@ -133,7 +134,7 @@ These studies measure the relationship of the bones in the knee joints, and not 
 
 The results of this study seemed to show a significant difference between the skin and bone movement during several different gaits; average rotational errors were between \(4.4^\circ\) and \(13.1^\circ\) while translational errors averaged up to 16.1mm \cite{SkinMovementKneeKin}. What is more interesting is that the errors measured remained relatively constant between different movements, seemingly demonstrating that the error comes from the different connection methods (skin vs bone) and not via measurement tolerances. The researchers were able to conclude that skin-marker kinematics around the knee are not representative of the motion of the bone inside the knee joint. We may be able to therefore inversely conclude that bone kinematics may not be a good representation when designing knee orthoses. However, the research had a relatively small sample size due to the invasive nature of the experiment, and attached markers directly to taped up thighs (see \autoref{fig:SkinBoneRelationshipStudy}), which may have failed to represent the actual skin movement. Therefore, more research is needed to conclude the relationship between a skin connection on the thigh and a skin connection on the shank (calf) for the purpose of rehabiliation exoskeletons.
 
-% Todo: if time, add a section on knee orthoses
+% Todo: [minor] if time, add a section on knee orthoses
 % \subsection{Current Knee Orthoses}
 
 
@@ -145,37 +146,50 @@ Exoskeletons are an interesting application to help those with paralysis rehabil
 \label{sec:larre}
 \begin{figure}[ht!]
     \centering
-    \includegraphics[width=0.3\linewidth]{Figures/Background/SkinMovementResearch_ImageMarked.jpg}
-    \caption{}
+    \includegraphics[width=0.7\linewidth]{Figures/Background/OtherExos/LARRE_old.png}
+    \caption{The WPI LARRE rehabilitation exoskeleton \cite{SpringWrapClutchKnee}}
     \label{fig:LARRE_Background}
 \end{figure}
 
 The WPI LARRE (Legged Articulated Robotic Rehabilitation Exoskeleton) is an exoskeleton project developed by the \href{http://aimlabdev.wpi.edu} {Worcester Polytechnic Institute (WPI) Automated and Interventional Medicine (AiM) Lab}. The research presented in this thesis directly contributes to the AiM Lab's effort to develop an exoskeleton for rehabilitation of lower-limb paralysis patients. 
 
-The project was originally started and named as the HEX Gen-1. It's original goal was to help with rehabilitation of patients who have suffered from spinal chord injury, and took a hybrid approach to an exoskeleton design. The hip joint is powered by a brushless DC motor (Maxon EC 90), while the knee and ankle joints aren't actively powered by any motor. Instead, the knee joint contains a spring wrap clutch/brake to help provide support to patients throughout their gait cycles. Additionally, the ankle joint included a spring to add force during dorsiflexion to help in walking gaits \cite{SpringWrapClutchKnee}.
-% TODO: Probably should include more in this section, including mounting system and how the knee is a pin joint
+The project was originally started and named as the HEX Gen-1. It's goal was to help with studying rehabilitation of patients who have suffered from spinal chord injury using exoskeletons. The project also offers a platform to develop software and hardware technology for rehabilitation exoskeleton. Therefore, it is designed to be adaptable to research different control systems and joint types. The hip joint is powered by a brushless DC motor (Maxon EC90, Maxon Group), while the knee and ankle joints aren't actively powered by any motor. Instead, the knee joint contains a spring wrap clutch/brake to help provide support to patients throughout their gait cycles as proposed by \cite{SpringWrapClutchKnee}. Additionally, the ankle joint included a spring to add force during dorsiflexion to help in walking gaits.
 
 \subsection{H2}
 
-\begin{figure}[ht!]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.3\linewidth]{Figures/Background/OtherExos/H2_Exo.png}
     \hspace{0.1\linewidth}
-    \includegraphics[width=0.55\linewidth]{Figures/Background/OtherExos/H2_ExoUse.png}
+    \includegraphics[width=0.5\linewidth]{Figures/Background/OtherExos/H2_ExoUse.png}
     \caption{The H2 Exoskeleton, with 6 powered joints and lithium polymer batteries \cite{ExoH2}}
     \label{fig:H2Exo}
 \end{figure}
 
 The H2 robotic exoskeleton is designed by the University of Houston to help stroke survivors with gait training and physical rehabilitation. It has 6 powerful DC motors (3 on each leg on the hip, knee, and ankle joint) geared down with harmonic gearboxes. Each motor is powered by its own local motor controller, with all electronics connected to a main controller via CAN bus. An assistive gait controller is used to apply torque when patients deviate from a planned gait pattern. The device itself was tested on 3 hemiparetic stroke patients, and was safe and effective throughout the 4 week testing period. The pilot clinical study demonstrated the "assist-as-needed" control system was able to benefit the stroke patients, and help them recover \cite{ExoH2}.
 
-% More analysis of the exo here?
-
 \subsection{ReWalk}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.4\linewidth]{Figures/Background/OtherExos/ReWalk.png}
+    \caption{The Rewalk exoskeleton: an commercial exoskeleton with knee and hip powered joints \cite{ExoRewalk}.}
+    \label{fig:RewalkExo}
+\end{figure}
 
-\subsection{EKSO}
+The {Rewalk\texttrademark} exoskeleton (Rewalk Robotics) is a commercial exoskeleton for lower-limb paralysis patients. Unlike most medical exoskeletons, Rewalk is designed for daily use - not just for rehabilitation in controlled environment. It consists of a lower-limb exoskeleton with powered rotary joints. The joints do not consider tibiofemoral joint trajectory, and have a static center of rotation. The system is all powered by a computer and batteries in a backpack worn by the user. Research by Talaty \textit{et. al} in \cite{ExoRewalk} demonstrated that assistive devices such as Rewalk are able to improve the walking capability of lower-limb paralysis patients with some practice. 
 
-\subsection{Indigo}
+\subsection{EksoNR}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\linewidth]{Figures/Background/OtherExos/EKSO.png}
+    \caption{The Ekso exoskeleton is a commercial rehabilitation system currently used in hospitals and rehabilitation centers.}
+    \label{fig:EksoExo}
+\end{figure}
 
-\subsection{KINESIS}
+The EksoNR exoskeleton (EksoBionics, Richmond California) is a commercial rehabilitation exoskeleton currently in clinical use since February 2012. EksoBionics - the company that manufactures this device - claims to be the only FDA-cleared exoskeleton for use with patients with acquired brain injury which has lead to paralysis. It has similar functionality and features to the Rewalk; the hip, knee, and ankle joints are all actuated pin joints. The exoskeleton holds the control electronics and batteries in a backpack-like container, which doubles as a way to stabilize the patient's upper body during use \cite{ExoEksoNR}.
 
-\subsection{HAL}
+% \subsection{Indigo}
+
+% \subsection{KINESIS}
+
+% \subsection{HAL}
