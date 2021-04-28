@@ -41,7 +41,6 @@ The knee joint has two rehabilitation requirements to fulfill: walking gaits and
 Sensors must be able to accurately encode the rotational position of the joint. The rationale behind this requirement is for research, debugging, and most importantly accurate and safe position control. Therefore, the joint must be able to read its own position in both passive (non-powered) modes and active (powered) modes. It should also have a minimum accuracy of \(\pm0.5^\circ\) during position control, and be able to maintain position measurement through power cycles (absolute positioning).
 
 \subsubsection{Simple to manufacture and assemble}
-\improve[]{This parameter might need to be more measurable?}
 The joint must be designed with manufacturing and assembly in mind. All components must be easily sourced and generally available. Any machining requirement must be achievable with common machining techniques.
 
 \subsubsection{Integrates into the WPI LARRE}
@@ -59,7 +58,7 @@ The orthotic joint design proposed uses a similar idea to how a human knee joint
 \end{figure}
 
 \subsubsection{Torsion Bars}
-The center of rotation of the joint is designed to match the axis of rotation of the actuator. The output of this actuator \fix{Add reference to actuator decision section} is directly connected to the torsion bar using M5 shoulder bolts. Each bolt is designed to support 3 bearings: 2 on the motor side and 1 on the patient side. The reduced count on the patient side allows for the torsion bar to be partially recessed in the shank link to reduce the distance between the center of mass between the patient and the joint. The 6 bearings are still able to support the forces necessary throughout a walking gait cycle (see \autoref{sec:BearingsAndCalcs}). 
+The center of rotation of the joint is designed to match the axis of rotation of the actuator. The output of this actuator is directly connected to the torsion bar using M5 shoulder bolts. Each bolt is designed to support 3 bearings: 2 on the motor side and 1 on the patient side. The reduced count on the patient side allows for the torsion bar to be partially recessed in the shank link to reduce the distance between the center of mass between the patient and the joint. The 6 bearings are still able to support the forces necessary throughout a walking gait cycle (see \autoref{sec:BearingsAndCalcs}). 
 
 \subsubsection{Shank Links}
 The 2 shank links attach to the lower part of the exoskeleton, and are responsible for taking the rotational energy created by the motor and partially changing it to translational energy to help linearly extend the shank. The bearings connected to the torsion bars ride in a guide built into the shank link. This guide is slightly larger than the bearing diameter (\(~0.3mm\)) to prevent rubbing without creating much of a backlash (\(0.39^\circ\) backlash, see calculation on \autoref{eq:ShankLinkBacklash}).
@@ -98,8 +97,8 @@ The knee path guide is built into the thigh link as a slot. The geometry is calc
 
 \begin{figure}[ht!]
     \centering
-    \missingfigure{Make a picture of the thigh link with relationship highlighted}
-    \caption{The thigh link contains the geometry which the bearings ride on to mimic the tibiofemoral relationship}
+    \includegraphics[width=0.8\linewidth]{Figures/Design/KneePathGuide.png}
+    \caption{The thigh link contains the geometry (highlighted in blue) which the bearings ride on to mimic the tibiofemoral relationship}
     \label{fig:CenterPlateGeometry}
 \end{figure}
 
@@ -168,7 +167,7 @@ The second force requirement for these bearings were in the knee path cam. Each 
 % TODO: Probably should have a Design Analysis section, but not much data
 
 \section{Material Selection \& Manufacturing}
-\fix[inline]{Talks only about one component, but never mentions that component. This section should mention every component and the analsysis for each one}
+
 The concept behind the joint is not dependent on material choice. However, when it came time to manufacture the prototypes, two materials were selected as potential options: aluminum and polylactic acid (PLA) plastic. Aluminum benefits from its strength to weight ratio and manufacturing simplicity when it is being machined. PLA plastic, on the other hand, can be injection molded or 3D printed using fused deposition modeling (FDM) printers. This makes PLA more flexible and less expensive, at the cost of softness and strength when compared to aluminum.
 
 Other plastics and metals were initially considered. Out of the 3D printable plastics that were accessible with the tools available, PLA is strongest, stiffest, and hardest. Other FDM 3D printable plastics considered were  acrylonitrile butadiene styrene (ABS) and polyethylene terephthalate (PET). On the metals, side, steels were considered as a material option. However, its density and higher complexity to machine when compared to aluminum ruled it out as a material option.
@@ -195,8 +194,6 @@ To decide between aluminum and PLA, the materials were analyzed in finite elemen
     \label{table:MaterialProperties}
 \end{table}
 
-explain figures
-
 \begin{figure}[ht!]
     \centering
     \includegraphics[width=0.8\linewidth]{Figures/Design/FEA_PLA_45deg.png}
@@ -211,7 +208,8 @@ explain figures
     \label{fig:FEA_AL}
 \end{figure}
 
-PLA was chosen as the best material for our experimentation. Analysis demonstrated that it can support the stresses required at angle (shown in \autoref{fig:StrengthFlexion}). It can also be manufactured very quickly and easily with access to a conventional FDM 3D printer, allowing for quick revisions during the prototyping process. 
+PLA was chosen as the best material for our experimentation. Analysis demonstrated that it can support the stresses required at angle (shown in \autoref{fig:StrengthFlexion}). It can also be manufactured very quickly and easily with access to a conventional FDM 3D printer, allowing for quick revisions during the prototyping process. The final prototype was manufactured out of both aluminum and PLA; the thigh and shank links were 3D printed in PLA plastic while the torsion bar was machined out of aluminum to support the torque required.
+
 However, if this joint were to be manufactured for use outside of prototype development and clinical trials, I would recommend using aluminum, as the joint would likely be more resilient and last longer. It would also increase torsional stiffness in the joint and reduce the likelihood of the bearings creating divots in the surface of the knee path guide.
 
 \begin{figure}[ht!]
@@ -230,7 +228,7 @@ As a plastic, PLA has many options for manufacturing. While PLA can be injection
 Aluminum can also be 3D printed, but this requires some very specific tools to achieve. It can also be casted (similarly to injection molding for plastics), but this requires specific machining for the molds, and the parts still usually need to be machined to the final correct dimensions (the best option for high volume manufacturing). Therefore, all aluminum parts were designed to be manufactured using conventional lathes and mills. The manufacturing process, however, can be further simplified with access to a water jet or metal laser cutter. Such a tool can cut out all parts to a rough dimension, and a quick machining pass can finish the surfaces that need to be precise, such as the knee path guide and the slot in the shank link. If water jetting is selected as the preferred method of manufacture, parts may have a slight bevel due to the conical output of the water jet.
 
 \section{Knee Trajectory Testing}
-Motion capture and SolidWorks motion simulations were used to verify the joint's trajectory based on an inputed tibiofemoral trajectory. The motion simulation outputted a perfect match to the input equation (\autoref{eq:KneeJointGeometryEquation}), since the simulation platform is using a perfect model which directly inputs the equation above.
+Motion capture and SolidWorks motion simulations were used to verify the joint's trajectory based on an inputted tibiofemoral trajectory. The motion simulation outputted a perfect match to the input equation (\autoref{eq:KneeJointGeometryEquation}), since the simulation platform is using a perfect model which directly inputs the equation above.
 
 \begin{figure}[ht!]
     \centering
