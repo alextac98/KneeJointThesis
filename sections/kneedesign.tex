@@ -12,7 +12,7 @@ The following are the design parameters layed out at the beginning of the projec
 The knee joint must be able to follow a tibiofemoral trajectory. As referenced in \cite{KinDynKneeJoint}, human knee joints can be generally defined by a quartic trajectory. This project will use the parameters of a cadaver, which can be seen in \autoref{eq:KneeJointGeometryEquation}. The design of the joint must be easily customizable for each patient/user. Ideally, all parts except a few should remain the same to increase simplicity and reduce cost of manufacturing.
 
 \begin{equation}
-    r(\theta) mm = 1.078\theta^4 - 11.184\theta^3 + 26.524\theta^2 - 0.825\theta + 263.59
+    r(\theta) mm = 1.078\theta^4 - 11.184\theta^3 + 26.524\theta^2 - 0.825\theta
     \label{eq:KneeJointGeometryEquation}
 \end{equation}
 
@@ -31,7 +31,7 @@ Each joint should be able to support half of the weight of a 85kg human plus a 1
 \begin{figure}[ht!]
     \centering
     \includegraphics[width=\linewidth]{Figures/Design/SitStandPowerCurveKnee.png}
-    \caption{Joint kinematics and dynamics during a sit/stand gait cycle \cite{SpringWrapClutchKnee}}
+    \caption{Joint kinematics and dynamics during a standing exercise \cite{SpringWrapClutchKnee}}
     \label{fig:SitStandPowerCurve}
 \end{figure}
 
