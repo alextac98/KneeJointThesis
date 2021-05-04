@@ -152,17 +152,20 @@ To decide between aluminum and PLA, the materials were analyzed in finite elemen
 
 \begin{figure}[ht!]
     \centering
-    \includegraphics[width=0.8\linewidth]{Figures/Design/FEA_PLA_45deg.png}
-    \caption{FEA of knee joint manufactured from PLA. Force applied (at arrows) is 500N, the resultant safety factor is 2.359.}
+    \includegraphics[width=0.45\linewidth]{Figures/Design/FEA_Stress.png}
+    \includegraphics[width=0.45\linewidth]{Figures/Design/FEA_Strain.png}
+    \includegraphics[width=0.45\linewidth]{Figures/Design/FEA_Displacement.png}
+    \includegraphics[width=0.45\linewidth]{Figures/Design/FEA_FOS.png}
+    \caption{Finite element analysis of knee joint manufactured from PLA. Top left shows von Miss stress, top right shows strain, bottom left shows displacement, bottom right shows factor of safety. Force applied (at arrows) is 500N, the resultant safety factor is 2.359 at \(45^\circ\).}
     \label{fig:FEA_PLA}
 \end{figure}
 
-\begin{figure}[ht!]
-    \centering
-    \includegraphics[width=0.8\linewidth]{Figures/Design/FEA_AL_45deg.png}
-    \caption{FEA of knee joint manufactured from Aluminum. Force applied (at arrows) is 500N, the resultant safety factor is 12.04.}
-    \label{fig:FEA_AL}
-\end{figure}
+% \begin{figure}[ht!]
+%     \centering
+%     \includegraphics[width=0.8\linewidth]{Figures/Design/FEA_AL_45deg.png}
+%     \caption{FEA of knee joint manufactured from Aluminum. Force applied (at arrows) is 500N, the resultant safety factor is 12.04.}
+%     \label{fig:FEA_AL}
+% \end{figure}
 
 PLA was chosen as the best material for our experimentation. Analysis demonstrated that it can support the stresses required at angle (shown in \autoref{fig:StrengthFlexion}). It can also be manufactured very quickly and easily with access to a conventional FDM 3D printer, allowing for quick revisions during the prototyping process. The final prototype was manufactured out of both aluminum and PLA; the thigh and shank links were 3D printed in PLA plastic while the torsion bar was machined out of aluminum to support the torque required.
 
