@@ -1,7 +1,9 @@
 \chapter{Parameterization of Human Knee Joints}
 \label{sec:KneeParams}
 
-In order for the designed knee joint to work on real patients, a system needs to be developed which can parameterize a person. A successful system will be able to non-invasively create a relationship between flexion of the knee joint and the linear movement of the shank away from the joint center. There have been several attempts to parameterize the human knee joint using many different methods, including \cite{3DKinKneeJointOldStabby}, \cite{MRIKneeShape_Unloaded}, \cite{MRIKneeShape_Loaded}, and \cite{ModelAnalysisDeepKneeFlexion} just to name a few. All of these studies focus on the tibiofemoral relationship, i.e. the bone movement within the lower limbs. However, rehabilitation exoskeletons connect to the skin of its user. Therefore, an imaging workflow and software processing program needs to be developed to be able to parameterize a patient's knee movement with consideration to skin movement.
+The proposed and prototyped knee joint requires a specific input of patient parameters to achieve its goal of matching a person's knee movement. Therefore, a system must be developed to non-invasively identify a relationship between the flexion of the patient's knee joint and the linear movement of the shank away from the knee's joint center. There have been several attempts to parameterize the human knee joint using many different methods, including \cite{3DKinKneeJointOldStabby}, \cite{MRIKneeShape_Unloaded}, \cite{MRIKneeShape_Loaded}, and \cite{ModelAnalysisDeepKneeFlexion}. All of these studies focus on the tibiofemoral relationship, i.e. the bone movement within the lower limbs. However, rehabilitation exoskeletons connect to the skin of its user. Other studies have identified a difference between identifying knee kinematics through skin markers and bone pins \cite{reinschmidt1997effect}, suggesting there is in fact a distinct difference between tibiofemoral movement and skin movement around the knee. Therefore, an imaging workflow and software processing program needs to be developed to be able to parameterize a patient's knee movement with consideration to skin movement.
+
+To identify the knee relationship, an imaging workflow as well as an accompanying software analysis tool is proposed and tested with pilot data. This imaging method uses a motion capture system to identify movement of specific markers attached to a person's skin. This will all be processed using a custom software workflow consisting of both Vicon image processing and custom Python scripts that will extract the parameters from the data. To test this workflow, an experiment is proposed using medical MR imaging to identify the kinematics of the knee joint, compare the developed knee joint to a traditional pin joint, and determine the relationship between the knee joint kinematics and the skin movement surrounding the knee.
 
 \section{Proposed Method of Imaging}
 \label{sec:ImaginKneeProcedure}
@@ -15,7 +17,7 @@ In order for the designed knee joint to work on real patients, a system needs to
 
 The proposed imaging workflow can be split up into two major parts: the imaging session and the software processing. For flexibility and speed, the usage of a motion capture system is proposed, which can develop accurately track the position of motion dots. In this study, the motion capture system used was a 10-camera Vicon Vantage 5 \footnote{See Vicon system here: \url{https://www.vicon.com/hardware/cameras/vantage/}}, but any motion capture system is usable given enough precision. 
 
-To measure the knee flexion, a patient is placed on their back, shown in \autoref{fig:ParamPatientPosition}.Motion capture dots are then placed on the patient to track the positions where the exoskeleton will attach to the skin. Two additional points can be placed on the knee for extra feedback and the final joint position, but are not necessary for the software system. Then, the patient will flex and extend their knee joint while keeping the heel on the table to stabilize the knee and prevent shanking. The placement of the patient should allow for a technician to help the patient bend their knee if their condition does not allow them to do so themselves. Once the data is collected, it can be processed by the parameterization software system.
+To measure the knee flexion, a patient is placed on their back, shown in \autoref{fig:ParamPatientPosition}.Motion capture dots are then placed on the patient using double-sided tape to track the positions where the exoskeleton will attach to the skin. Two additional points can be placed on the knee for extra feedback and the final joint position, but are not necessary for the software system. Then, the patient will flex and extend their knee joint while keeping the heel on the table to stabilize the knee and prevent shanking. The placement of the patient should allow for a technician to help the patient bend their knee if their condition does not allow them to do so themselves. Once the data is collected, it can be processed by the parameterization software system.
 
 \section{Parameterization Software}
 % TODO: Add software flowchart
@@ -31,6 +33,11 @@ To finish the parameterization of the knee, custom software was developed and wr
 \end{figure}
 
 With the data parsed and imported, the final step is to calculate the final joint angles and determine the linear extension between the thigh and shank. The axis of rotation from SCoRE and all marker positions are projected onto a plane, which is calculated to be approximately the same as the plane of the manufactured joint. Then the final distance and angle are calculated by drawing two virtual lines as shown in \autoref{fig:SoftwareSampleData}: 1. from the projected primary thigh marker to the projected SCoRE location and 2. from the projected SCoRE location to the projected primary shank marker. The lengths of these lines then become the calculated linear extension and the angle between these two lines become the flexion. These two metrics are then combined into a dataset, and a best fit quartic curve is selected to become the patient's knee parameters.
+
+\section{Testing with Pilot Data}
+
+
+
 
 \section{Study Outline}
 
