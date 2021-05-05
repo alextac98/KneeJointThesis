@@ -35,9 +35,27 @@ To finish the parameterization of the knee, custom software was developed and wr
 With the data parsed and imported, the final step is to calculate the final joint angles and determine the linear extension between the thigh and shank. The axis of rotation from SCoRE and all marker positions are projected onto a plane, which is calculated to be approximately the same as the plane of the manufactured joint. Then the final distance and angle are calculated by drawing two virtual lines as shown in \autoref{fig:SoftwareSampleData}: 1. from the projected primary thigh marker to the projected SCoRE location and 2. from the projected SCoRE location to the projected primary shank marker. The lengths of these lines then become the calculated linear extension and the angle between these two lines become the flexion. These two metrics are then combined into a dataset, and a best fit quartic curve is selected to become the patient's knee parameters.
 
 \section{Testing with Pilot Data}
+Due to time constraints, IRB (Internal Review Board) approval was not obtained to run a full study. However, some data was used to develop the software platform that will analyze the data. The graphs in \autoref{fig:Subj1KneeParams} and \autoref{fig:Subj2KneeParams} show the relationships between the knee joint flexion (angle of the knee) and the linear extension (distance of the shank to the joint center).
 
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=\textwidth]{Figures/Param/Subj1_KneeProfile.png}
+    \caption{A visualization of the angular flexion and linear extension of the shank from the joint center of the first dataset}
+    \label{fig:Subj1KneeParams}
+\end{figure}
 
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=\textwidth]{Figures/Param/Subj2_KneeProfile.png}
+    \caption{A visualization of the angular flexion and linear extension of the shank from the joint center of the second dataset}
+    \label{fig:Subj2KneeParams}
+\end{figure}
 
+The data displayed in \autoref{fig:Subj1KneeParams} has a variation of up to \(7mm\) for any given angle. However, what is most interesting is the difference in the direction of the flexion. When the knee joint angle is increasing (knee is being bent), the markers are closer together, compared to when the knee joint is decreasing. In any given direction of movement, variation is less than \(2mm\), suggesting that this seemingly cyclical trajectory is not due to measurement variations or inaccuracies.
+
+\autoref{fig:Subj2KneeParams}'s data is seemingly less dependent on the knee joint angular velocity direction. All data is within a \(3mm\) variation at any given angle. The notable exception is the \(7mm\) spike that can be seen at roughly \(25^\circ\) mark. This can likely be explained by either an accidental shift in the markers or a slight measurement error in the motion capture system. However, there is not sufficient data to make a conclusion as to the reasoning.
+
+The data analyzed both show that the maximum variation in skin movement through the flexion of the knee never exceeded \(7mm\), even with the outlier event from \autoref{fig:Subj2KneeParams}. In comparison, studies presented in \autoref{sec:KneeModel} describe a tibio\-femoral relationship that varies over \(40mm\) throughout the joint flexion. While these two data points are not statistically significant enough to make a conclusion for all human knees, the preliminary pilot data suggests that the skin movement is different than the tibiofemoral movement. An in-depth study is needed to make a definitive conclusion.
 
 \section{Study Outline}
 
