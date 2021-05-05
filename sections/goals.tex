@@ -6,7 +6,7 @@ The knee has been shown to have a non-linear relationship between the flexion an
 The following are the design parameters layed out at the beginning of the project:
 
 \subsubsection{Follows the defined knee tibiofemoral trajectory}
-The knee joint must be able to follow a tibiofemoral trajectory. As referenced in \cite{KinDynKneeJoint}, human knee joints can be generally defined by a quartic trajectory. This project will use the parameters of a cadaver, which can be seen in \autoref{eq:KneeJointGeometryEquation}. This equation was selected as a goal to prove the effectiveness of the design to follow a desired trajectory. The design of the joint should be easily modifiable to match a patient's individual knee joint. Ideally, all parts except a few should remain the same to increase simplicity and reduce cost of manufacturing.
+The knee joint must be able to follow a tibiofemoral trajectory. As referenced in \cite{KinDynKneeJoint}, human knee joints can be generally defined by a quartic trajectory. The example implementation of the approach developed in this project will use the parameters of a cadaver, which can be seen in \autoref{eq:KneeJointGeometryEquation}. This equation was selected as a goal to prove the effectiveness of the design to follow a desired trajectory. The design of the joint should be easily modifiable to match a patient's individual knee joint. Ideally, all parts except a few should remain the same to increase simplicity and reduce cost of manufacturing.
 
 \begin{equation}
     r(\theta) mm = 1.078\theta^4 - 11.184\theta^3 + 26.524\theta^2 - 0.825\theta
@@ -14,7 +14,7 @@ The knee joint must be able to follow a tibiofemoral trajectory. As referenced i
 \end{equation}
 
 \subsubsection{Supports the weight of a person}
- Rehabilitation exoskeletons are often designed to only guide the user's body, and therefore do not support the user's body weight. However, to ensure the designed orthosis can be applicable in a multitude of scenarios, a weight requirement was still established. Each joint should be able to support half of the weight of a 85kg human plus a 15kg exoskeleton (total of 100kg) with an additional safety factor.
+ Rehabilitation exoskeletons are often designed to only guide the user's body, and therefore do not support the user's body weight. However, to ensure the designed orthosis can be applicable in a multitude of scenarios, a weight requirement was still established. Each joint should be able to support half of the weight of a 85kg human plus a 15kg exoskeleton (total of 100kg) with an additional safety factor. The design is not expected to see this weight except in situations where the joint will hold up its user at certain angles, such as for sit/stand exercises. In those scenarios, a user will have both legs supported at the same time by two knee joints.
 
 \subsubsection{Power/Torqe/Speed for walking gaits and sit/stand exercises}
 
@@ -32,7 +32,7 @@ The knee joint must be able to follow a tibiofemoral trajectory. As referenced i
     \label{fig:SitStandPowerCurve}
 \end{figure}
 
-The knee joint has two rehabilitation requirements to fulfill: walking gaits and sit/stand gaits. Prior research has shown that walking gaits require roughly up to \(0.65 \frac{W}{kg}\) and \(0.25\frac{Nm}{kg}\), (see \autoref{fig:WalkingPowerCurve}), while a sit/stand gait requires roughly up to \(0.5 \frac{W}{kg}\) and \(0.04 \frac{Nm}{kg}\).  Speed requirements are roughly \(120^\circ/sec\) for walking gaits and \(150^\circ/sec\) for sit/stand gaits. Therefore, the designed knee joint for the \(100 kg\) weight specification should be capable of mechanically outputting \(65 W\) and \(25 Nm\) at \(150^\circ/sec\).
+The knee joint has two rehabilitation requirements to fulfill: walking gaits and sit/stand gaits. Prior research in the WPI AiM lab \cite{SpringWrapClutchKnee} has shown that walking gaits require roughly up to \(0.65 \frac{W}{kg}\) and \(0.25\frac{Nm}{kg}\), (see \autoref{fig:WalkingPowerCurve}), while a sit/stand gait requires roughly up to \(0.5 \frac{W}{kg}\) and \(0.04 \frac{Nm}{kg}\).  Speed requirements are roughly \(120^\circ/sec\) for walking gaits and \(150^\circ/sec\) for sit/stand gaits. Therefore, the designed knee joint for the \(100 kg\) weight specification should be capable of mechanically outputting \(65 W\) and \(25 Nm\) at \(150^\circ/sec\).
 
 \subsubsection{Senses the joint angle}
 Sensors must be able to accurately encode the rotational position of the joint. The rationale behind this requirement is for research, debugging, and most importantly accurate and safe position control. Therefore, the joint must be able to read its own position in both passive (non-powered) modes and active (powered) modes. It should also have a minimum accuracy of \(\pm0.5^\circ\) during position control, and be able to maintain position measurement through power cycles (absolute positioning).

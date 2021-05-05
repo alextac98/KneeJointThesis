@@ -16,7 +16,7 @@ The orthotic joint design proposed uses a similar idea to how a human knee joint
 \end{figure}
 
 \subsubsection{Torsion Bars}
-The center of rotation of the joint is designed to match the axis of rotation of the actuator. The output of this actuator is directly connected to the torsion bar using M5 shoulder bolts. Each bolt is designed to support 3 bearings: 2 on the motor side and 1 on the patient side. The reduced count on the patient side allows for the torsion bar to be partially recessed in the shank link to reduce the distance between the center of mass between the patient and the joint. The 6 bearings are still able to support the forces necessary throughout a walking gait cycle (see \autoref{sec:BearingsAndCalcs}). 
+The center of rotation of the joint is designed to match the axis of rotation of the actuator. The output of this actuator is directly connected to the torsion bar using M5 shoulder bolts. Each bolt is designed to support 3 bearings: 2 on the motor side and 1 on the patient side. The reduced count on the patient side allows for the torsion bar to be partially recessed in the shank link to reduce the distance between the center of mass between the patient and the joint. The 6 bearings are still able to support the forces necessary throughout a walking gait cycle. 
 
 \subsubsection{Shank Links}
 The 2 shank links attach to the lower part of the exoskeleton, and are responsible for taking the rotational energy created by the motor and partially changing it to translational energy to help linearly extend the shank. The bearings connected to the torsion bars ride in a guide built into the shank link. This guide is slightly larger than the bearing diameter (\(~0.3mm\)) to prevent rubbing without creating much of a backlash (\(0.39^\circ\) backlash, see calculation on \autoref{eq:ShankLinkBacklash}).
@@ -43,12 +43,12 @@ Similarly to the torsion bar, the shank link also uses 2 shoulder bolts to clamp
 
 \begin{figure}[ht!]
     \centering
-    \includegraphics[width=0.7\linewidth]{Figures/Design/KneeJointAssyCrossSection_edit.png}
+    \includegraphics[width=0.7\linewidth]{Figures/Design/KneeJointAssyCrossSection.png}
     \caption{A cross section of the knee joint in a \(0^\circ\) position}
     \label{fig:KneeJointCrossSection}
 \end{figure}
 
-The thigh link acts as the main mounting point for most things, as well as contains the knee path guide. Just like the shank link, the thigh link has the universal exoskeleton connector used throughout the WPI LARRE project. The motor bracket is connected to the thigh link at two locations using \(20mm\diameter x 50mm\) spacers. These spacers must be strong and stiff, as they transmit the torque between the thigh and shank connector in high load situations. A potentiometer is also mounted inside the thigh link to measure the current angle of the joint, as shown in \autoref{fig:KneeJointCrossSection}. The wire connecting to it is routed through a slot in the thigh link to avoid any interference with the moving shank links. This wire comes out the top and is connected to the main controller of the exoskeleton.
+The thigh link acts as the main mounting point for the joint, as well as contains the knee path guide. Just like the shank link, the thigh link has the universal exoskeleton connector used throughout the WPI LARRE project. The motor bracket is connected to the thigh link at two locations using \(20mm\diameter x 50mm\) spacers. These spacers must be strong and stiff, as they transmit the torque between the thigh and shank connector in high load situations. A potentiometer is also mounted inside the thigh link to measure the current angle of the joint, as shown in \autoref{fig:KneeJointCrossSection}. The wire connecting to it is routed through a slot in the thigh link to avoid any interference with the moving shank links. This wire comes out the top and is connected to the main controller of the exoskeleton.
 
 \subsubsection{Knee Path Guide}
 The knee path guide is built into the thigh link as a slot. The geometry is calculated using several point measurements connected in SolidWorks with a spline. Each point is split by 15 degrees, and calculated from a pre-determined equation. This equation can be measured from a patient knee (see \autoref{sec:KneeParams}), but throughout the design and testing of this knee joint, \autoref{eq:KneeJointGeometryEquation} from \cite{KinDynKneeJoint} is used. \autoref{fig:CenterPlateGeometry} shows the equation above overlayed on the thigh link.
@@ -64,7 +64,7 @@ The joint is designed to be easily adaptable between patients. Therefore, the on
 
 \subsubsection{Torque Requirements \& Actuator Selection}
 
-The design parameters specified in \autoref{sec:DesignParams} are an output of at least \(65 W\) and \(25 Nm\) at \(150^\circ/sec\). The Maxon EC90 was chosen, with a peak power output of \(90W\) and a max continuous torque of \(0.560 Nm\) at \(2510 rpm\) (see \autoref{apx:EC90Datasheet}). To match the speed and torque requirements, a \(100:1\) gearbox ratio is needed. Due to its high reduction to size ratio, a strain wave gearbox from {Harmonic Drives\texttrademark} was chosen.\footnote{The gearbox used is proprietary, and no datasheet is available} Estimated efficiency of this gearbox is roughly \(\epsilon = 90\%\).
+The design parameters specified in \autoref{sec:DesignParams} are an output of at least \(65 W\) and \(25 Nm\) at \(150^\circ/sec\). The Maxon EC90 was chosen, with a peak power output of \(90W\) and a max continuous torque of \(0.560 Nm\) at \(2510 rpm\) (see \autoref{apx:EC90Datasheet}). To match the speed and torque requirements, a \(100:1\) gearbox ratio is needed. Due to its high reduction to size ratio, a strain wave gearbox from {Harmonic Drives\texttrademark} (part number 20-100-804) was chosen. Estimated efficiency of this gearbox is roughly \(\epsilon = 90\%\).
 
 \begin{table}
     \centering
@@ -126,7 +126,7 @@ The second force requirement for these bearings were in the knee path cam. Each 
 
 The concept behind the joint is not dependent on material choice. However, when it came time to manufacture the prototypes, two materials were selected as potential options: aluminum and polylactic acid (PLA) plastic. Aluminum benefits from its strength to weight ratio and manufacturing simplicity when it is being machined. PLA plastic, on the other hand, can be injection molded or 3D printed using fused deposition modeling (FDM) printers. This makes PLA more flexible and less expensive, at the cost of softness and strength when compared to aluminum.
 
-Other plastics and metals were initially considered. Out of the 3D printable plastics that were accessible with the tools available, PLA is strongest, stiffest, and hardest. Other FDM 3D printable plastics considered were  acrylonitrile butadiene styrene (ABS) and polyethylene terephthalate (PET). On the metals, side, steels were considered as a material option. However, its density and higher complexity to machine when compared to aluminum ruled it out as a material option.
+Other plastics and metals were initially considered. Out of the 3D printable plastics that were accessible with the tools available, PLA is among the strongest, stiffest, and hardest. Other FDM 3D printable plastics considered were  acrylonitrile butadiene styrene (ABS) and polyethylene terephthalate (PET). On the metals, side, steels were considered as a material option. However, its density and higher complexity to machine when compared to aluminum ruled it out as a material option.
 
 \subsubsection{Material Analysis}
 To decide between aluminum and PLA, the materials were analyzed in finite element analysis (FEA) simulation inside Dassault SolidWorks. \autoref{table:MaterialProperties} shows the material properties used. It is important to note that manufacturing methods were not considered in the analysis; therefore, layer adhesion was not considered when calculating the strength of the material.
@@ -150,14 +150,32 @@ To decide between aluminum and PLA, the materials were analyzed in finite elemen
     \label{table:MaterialProperties}
 \end{table}
 
-\begin{figure}[ht!]
+\begin{figure}[H]
     \centering
-    \includegraphics[width=0.45\linewidth]{Figures/Design/FEA_Stress.png}
-    \includegraphics[width=0.45\linewidth]{Figures/Design/FEA_Strain.png}
-    \includegraphics[width=0.45\linewidth]{Figures/Design/FEA_Displacement.png}
-    \includegraphics[width=0.45\linewidth]{Figures/Design/FEA_FOS.png}
-    \caption{Finite element analysis of knee joint manufactured from PLA. Top left shows von Miss stress, top right shows strain, bottom left shows displacement, bottom right shows factor of safety. Force applied (at arrows) is 500N, the resultant safety factor is 2.359 at \(45^\circ\).}
-    \label{fig:FEA_PLA}
+    \includegraphics[width=0.65\linewidth]{Figures/Design/FEA_Stress.png}
+    \caption{Finite element analysis reported von Miss stress of knee joint manufactured from PLA. Force applied (at arrows) is 500N.}
+    \label{fig:FEA_Stress_PLA}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.65\linewidth]{Figures/Design/FEA_Strain.png}
+    \caption{Finite element analysis reported strain of knee joint manufactured from PLA. Force applied (at arrows) is 500N.}
+    \label{fig:FEA_Strain_PLA}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.64\linewidth]{Figures/Design/FEA_Displacement.png}
+    \caption{Finite element analysis reported displacement under load of knee joint manufactured from PLA. Force applied (at arrows) is 500N.}
+    \label{fig:FEA_Displacement_PLA}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.65\linewidth]{Figures/Design/FEA_FOS.png}
+    \caption{Finite element analysis reported factor of safety of knee joint manufactured from PLA. Force applied (at arrows) is 500N.}
+    \label{fig:FEA_FoS_PLA}
 \end{figure}
 
 % \begin{figure}[ht!]
@@ -167,7 +185,7 @@ To decide between aluminum and PLA, the materials were analyzed in finite elemen
 %     \label{fig:FEA_AL}
 % \end{figure}
 
-PLA was chosen as the best material for our experimentation. Analysis demonstrated that it can support the stresses required at angle (shown in \autoref{fig:StrengthFlexion}). It can also be manufactured very quickly and easily with access to a conventional FDM 3D printer, allowing for quick revisions during the prototyping process. The final prototype was manufactured out of both aluminum and PLA; the thigh and shank links were 3D printed in PLA plastic while the torsion bar was machined out of aluminum to support the torque required.
+PLA was chosen as the best material for our experimentation. Software finite element analysis demonstrated that it can support the stresses required at any angle (shown in \autoref{fig:StrengthFlexion}). It can also be manufactured very quickly and easily with access to a conventional FDM 3D printer, allowing for quick revisions during the prototyping process. The final prototype was manufactured out of both aluminum and PLA; the thigh and shank links were 3D printed in PLA plastic while the torsion bar was machined out of aluminum to support the torque required.
 
 However, if this joint were to be manufactured for use outside of prototype development and clinical trials, I would recommend using aluminum, as the joint would likely be more resilient and last longer. It would also increase torsional stiffness in the joint and reduce the likelihood of the bearings creating divots in the surface of the knee path guide.
 
